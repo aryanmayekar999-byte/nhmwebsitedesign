@@ -1,19 +1,19 @@
 # Nihon Heritage Motors — website design
 
-Marketing site for **Nihon Heritage Motors**, a specialist importer of classic Japanese cars. It's built on the [Nihon Heritage Motors design system](https://claude.ai/artifact/7Yc2Ckmh5WPA2tWS25W5Cd): a precise, understated, archive-like look with black-and-white surfaces, Garamond headings and red used only as a deliberate accent.
+Site for **Nihon Heritage Motors**, a planned importer of classic Japanese cars for collectors in India. The copy describes NHM as in development, not as an operating business. It's built on the [Nihon Heritage Motors design system](https://claude.ai/artifact/7Yc2Ckmh5WPA2tWS25W5Cd): a precise, understated, archive-like look with black-and-white surfaces, Garamond headings and red used only as a deliberate accent.
 
 ## What's here
 
 | Path | What |
 | --- | --- |
-| `index.html` | Home page: hero, archive ledger, import lane, provenance feature, enquiry form |
+| `index.html` | Home page: hero, why Japanese classics, example archive, how it will work, provenance, contact (enquiries not open yet) |
 | `styleguide.html` | Live style guide: logo, colour, type, spacing, radius, components |
 | `css/tokens.css` | Design tokens as CSS custom properties (mirrors `design-system/tokens.json`) |
 | `css/site.css` | Site layout and components, built only from tokens |
 | `design-system/tokens.json` | Token source copied from the design system |
 | `design-system/brand-book.md` | Brand rules: logo, colour, type, space, imagery |
 | `assets/brand/` | Master emblem (PNG as supplied), 512px copy, favicon and touch icon |
-| `assets/images/` | Showroom, grille badge and stationery concept renders (WebP, 800px and full size) |
+| `assets/images/` | Showroom, Datsun 240Z (cropped from the campaign poster), grille badge and stationery concept renders (WebP, 800px and full size) |
 
 ## Run it
 
@@ -33,9 +33,9 @@ To publish on GitHub Pages, set **Settings → Pages → Source** to this branch
 - Keep corners square and add no shadows or gradients. Separate content with `Hairline` rules or a change of surface.
 - The dark theme is defined in `css/tokens.css` under `[data-theme="dark"]` but switched off. It stays off until a reversed emblem exists.
 
-## Placeholders before launch
+## Before launch
 
-- The archive listings are illustrative. Replace them with live stock.
-- All photography is concept rendering, not real premises or cars.
-- The enquiry form validates on the client only and needs a backend (for example Formspree, Netlify Forms or your CRM).
-- Budget ranges are in GBP. Change them if you trade in another currency.
+- **Enquiries:** the contact section says enquiries open soon and has no form. Add a working channel (an email link, or a form service such as Formspree or your CRM) once you're ready to receive enquiries. Never show a form that doesn't send.
+- **Claims:** the sourcing, inspection, documentation and delivery copy is written as the plan. Change it to present tense only once those partners and processes exist.
+- **Archive:** it's an example of the models NHM plans to source, with no stock or status. Replace it with real cars when there is stock.
+- **Photography:** all images are concept renders, not real premises or cars.
