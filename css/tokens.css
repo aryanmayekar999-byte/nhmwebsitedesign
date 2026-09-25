@@ -1,0 +1,65 @@
+/* Nihon Heritage Motors — design tokens.
+   Mirrors design-system/tokens.json. Edit that file first, then update these values. */
+
+:root,
+[data-theme="light"] {
+  --ink: #111111;
+  --paper: #ffffff;
+  --warmpaper: #f7f6f3;
+  --NHMred: #dc010f;
+  --on-accent: #ffffff;
+  --Slate: #626262;
+  --Hairline: #dededa;
+  --border: #767676;
+  --focus: var(--ink);
+  --washi: #e6ddd1;
+  --charcoal: #2c2927;
+  color-scheme: light;
+}
+
+/* The dark theme is defined but opt-in only: the emblem has no reversed
+   version yet, so the site stays light until one exists. */
+[data-theme="dark"] {
+  --ink: #f2efe9;
+  --paper: #141211;
+  --warmpaper: #2c2927;
+  --NHMred: #f46e66;
+  --on-accent: #1a0605;
+  --Slate: #a9a7a3;
+  --Hairline: #3a3835;
+  --border: #8c8a86;
+  --focus: var(--ink);
+  color-scheme: dark;
+}
+
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 40px;
+  --space-6: 64px;
+
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-full: 9999px;
+
+  --font-garamond: "Cormorant Garamond", Garamond, "EB Garamond", "Times New Roman", serif;
+  --font-inter: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.display       { font: 600 64px/68px var(--font-garamond); letter-spacing: 0.01em; }
+.heading-1     { font: 600 44px/50px var(--font-garamond); }
+.heading-2     { font: 600 32px/38px var(--font-garamond); }
+.heading       { font: 600 16px/1.5 var(--font-garamond); }
+.wordmark-caps { font: 600 20px/24px var(--font-garamond); letter-spacing: 0.08em; text-transform: uppercase; }
+.eyebrow       { font: 600 12px/16px var(--font-inter); letter-spacing: 0.14em; text-transform: uppercase; }
+.body          { font: 400 16px/1.5 var(--font-inter); }
+.body-sm       { font: 400 14px/22px var(--font-inter); }
+.label         { font: 500 14px/20px var(--font-inter); }
+.caption       { font: 400 12px/18px var(--font-inter); color: var(--Slate); }
+
+@media (max-width: 640px) {
+  .display   { font-size: 44px; line-height: 50px; }
+  .heading-1 { font-size: 36px; line-height: 42px; }
+}

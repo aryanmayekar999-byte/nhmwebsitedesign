@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style guide — Nihon Heritage Motors</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Nihon Heritage Motors, home">
+        <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="80" height="80">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Site</a></li>
+          <li><a href="styleguide.html" aria-current="page">Style guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" aria-labelledby="sg-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Design system</p>
+          <h1 id="sg-title" class="heading-1">Style guide</h1>
+          <p class="body">The tokens and components this site is built from. Values mirror <code>design-system/tokens.json</code>; the rules behind them are in <code>design-system/brand-book.md</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--warm" aria-labelledby="logo-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="logo-title" class="heading-2">Logo</h2>
+          <p class="body-sm">Use the file as supplied, on <code>paper</code>, <code>warmpaper</code> or <code>washi</code>, at least 48px tall, with <code>space-6</code> clear space at hero size. Never redraw it or recolour the dot.</p>
+        </div>
+        <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors emblem" width="240" height="240">
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="colour-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="colour-title" class="heading-2">Colour</h2>
+          <p class="body-sm">Black and white surfaces, with <code>NHMred</code> as the one accent: at most one red element per view.</p>
+        </div>
+        <ul class="swatches">
+          <li class="swatch"><div class="swatch__chip" style="background: var(--ink)"></div><div class="swatch__meta"><span class="label">ink</span><code>#111111</code><span class="caption">Primary text</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--paper)"></div><div class="swatch__meta"><span class="label">paper</span><code>#FFFFFF</code><span class="caption">Page background</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--warmpaper)"></div><div class="swatch__meta"><span class="label">warmpaper</span><code>#F7F6F3</code><span class="caption">Cards, panels</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--NHMred)"></div><div class="swatch__meta"><span class="label">NHMred</span><code>#DC010F</code><span class="caption">The one accent</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--Slate)"></div><div class="swatch__meta"><span class="label">Slate</span><code>#626262</code><span class="caption">Secondary text</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--Hairline)"></div><div class="swatch__meta"><span class="label">Hairline</span><code>#DEDEDA</code><span class="caption">Decorative rules</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--border)"></div><div class="swatch__meta"><span class="label">border</span><code>#767676</code><span class="caption">Control borders</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--washi)"></div><div class="swatch__meta"><span class="label">washi</span><code>#E6DDD1</code><span class="caption">Print, feature panels</span></div></li>
+          <li class="swatch"><div class="swatch__chip" style="background: var(--charcoal)"></div><div class="swatch__meta"><span class="label">charcoal</span><code>#2C2927</code><span class="caption">Print card stock</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="type-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="type-title" class="heading-2">Type</h2>
+          <p class="body-sm">Cormorant Garamond for headings, Inter for text.</p>
+        </div>
+        <div class="type-specimens">
+          <div><span class="caption">display · 64/68</span><span class="display">Heritage, imported</span></div>
+          <div><span class="caption">heading-1 · 44/50</span><span class="heading-1">The archive</span></div>
+          <div><span class="caption">heading-2 · 32/38</span><span class="heading-2">Provenance</span></div>
+          <div><span class="caption">heading · 16/24</span><span class="heading">Chassis records</span></div>
+          <div><span class="caption">wordmark-caps · 20/24</span><span class="wordmark-caps">Nihon Heritage Motors</span></div>
+          <div><span class="caption">eyebrow · 12/16</span><span class="eyebrow">Import lane</span></div>
+          <div><span class="caption">body · 16/24</span><span class="body">Every car arrives with its history intact.</span></div>
+          <div><span class="caption">body-sm · 14/22</span><span class="body-sm">Estimated landed cost, before duties.</span></div>
+          <div><span class="caption">label · 14/20</span><span class="label">Request a car</span></div>
+          <div><span class="caption">caption · 12/18</span><span class="caption">Photographed at auction</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="space-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="space-title" class="heading-2">Space and shape</h2>
+          <p class="body-sm">Err on the side of more white space. Corners are square like cut card stock; no shadows or gradients.</p>
+        </div>
+        <ul class="scale">
+          <li><span class="caption">space-1 · 4px</span><span class="bar" style="width: var(--space-1)"></span></li>
+          <li><span class="caption">space-2 · 8px</span><span class="bar" style="width: var(--space-2)"></span></li>
+          <li><span class="caption">space-3 · 16px</span><span class="bar" style="width: var(--space-3)"></span></li>
+          <li><span class="caption">space-4 · 24px</span><span class="bar" style="width: var(--space-4)"></span></li>
+          <li><span class="caption">space-5 · 40px</span><span class="bar" style="width: var(--space-5)"></span></li>
+          <li><span class="caption">space-6 · 64px</span><span class="bar" style="width: var(--space-6)"></span></li>
+        </ul>
+        <ul class="radii" style="margin-top: var(--space-5)">
+          <li><span class="shape" style="border-radius: var(--radius-none)"></span><span class="caption">radius-none · cards</span></li>
+          <li><span class="shape" style="border-radius: var(--radius-sm)"></span><span class="caption">radius-sm · controls</span></li>
+          <li><span class="shape" style="border-radius: var(--radius-full)"></span><span class="caption">radius-full · ring, dot</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="comp-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="comp-title" class="heading-2">Components</h2>
+          <p class="body-sm">One primary button per view. Focus ring: 2px solid <code>focus</code>, 2px offset.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn--primary" href="#comp-title">Request a car</a>
+          <a class="btn" href="#comp-title">Browse the archive</a>
+        </div>
+        <form class="form" style="margin-top: var(--space-5)" onsubmit="return false">
+          <div class="field">
+            <label for="sg-name">Text input</label>
+            <input id="sg-name" placeholder="Placeholder">
+          </div>
+          <div class="field">
+            <label for="sg-invalid">Invalid input</label>
+            <input id="sg-invalid" aria-invalid="true" aria-describedby="sg-invalid-hint" value="not-an-email">
+            <span class="hint" id="sg-invalid-hint">Errors are shown with weight and words, never red.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="caption">© 2026 Nihon Heritage Motors.</p>
+    </div>
+  </footer>
+</body>
+</html>

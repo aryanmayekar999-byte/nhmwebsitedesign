@@ -1,0 +1,328 @@
+/* Nihon Heritage Motors — site styles. Values come from tokens.css only. */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/1.5 var(--font-inter);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, h3, p, ol, ul, dl, dd, figure { margin: 0; }
+
+a { color: var(--NHMred); text-underline-offset: 3px; }
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-3);
+  top: -100px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  z-index: 10;
+}
+.skip-link:focus { top: var(--space-3); }
+
+/* Layout ----------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+@media (min-width: 768px) {
+  .container { padding: 0 var(--space-5); }
+}
+
+.section { padding: var(--space-6) 0; }
+.section + .section { border-top: 1px solid var(--Hairline); }
+.section--warm { background: var(--warmpaper); border-top: 0; }
+.section--warm + .section { border-top: 0; }
+
+.section-head {
+  display: grid;
+  gap: var(--space-2);
+  max-width: 640px;
+  margin-bottom: var(--space-5);
+}
+.section-head p { color: var(--Slate); }
+
+.eyebrow { color: var(--Slate); }
+
+/* Header ----------------------------------------------------------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--Hairline);
+  background: var(--paper);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+.brand img { width: 80px; height: 80px; }
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  list-style: none;
+  padding: 0;
+}
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font: 500 14px/20px var(--font-inter);
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid transparent;
+}
+.nav a:hover { border-bottom-color: var(--ink); }
+.nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+
+@media (max-width: 640px) {
+  .site-header .container { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+  .nav ul { gap: var(--space-1) var(--space-3); }
+}
+
+/* Buttons ---------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font: 500 14px/20px var(--font-inter);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { background: var(--warmpaper); }
+
+/* One per view — red stays deliberate. */
+.btn--primary {
+  background: var(--NHMred);
+  border-color: var(--NHMred);
+  color: var(--on-accent);
+}
+.btn--primary:hover { background: var(--NHMred); text-decoration: underline; text-underline-offset: 3px; }
+
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+/* Hero ------------------------------------------------------------------- */
+
+.hero { padding: var(--space-6) 0; }
+.hero .container {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .hero .container { grid-template-columns: 5fr 7fr; gap: var(--space-6); }
+}
+.hero__copy { display: grid; gap: var(--space-4); }
+.hero__copy .body { max-width: 34em; }
+.hero figure { display: grid; gap: var(--space-2); }
+
+/* Archive ledger --------------------------------------------------------- */
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+}
+.ledger th,
+.ledger td {
+  text-align: left;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--Hairline);
+  vertical-align: top;
+}
+.ledger thead th {
+  font: 600 12px/16px var(--font-inter);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--Slate);
+  border-bottom-color: var(--border);
+}
+.ledger .model { font: 600 20px/26px var(--font-garamond); }
+.ledger .chassis { font: 400 14px/22px var(--font-inter); color: var(--Slate); font-variant-numeric: tabular-nums; }
+.ledger .year { font-variant-numeric: tabular-nums; }
+
+.status { font: 500 14px/20px var(--font-inter); white-space: nowrap; }
+
+@media (max-width: 640px) {
+  .ledger thead { display: none; }
+  .ledger tr { display: grid; grid-template-columns: auto 1fr; gap: 0 var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--Hairline); }
+  .ledger td { border: 0; padding: 0 var(--space-3); }
+  .ledger td.year { grid-row: span 3; }
+}
+
+.ledger-note { margin-top: var(--space-3); }
+
+/* Import lane ------------------------------------------------------------ */
+
+.steps {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--Hairline);
+}
+@media (min-width: 768px) {
+  .steps { grid-template-columns: repeat(4, 1fr); }
+  .steps li + li { border-left: 1px solid var(--Hairline); }
+}
+.steps li {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-4) var(--space-4) 0;
+  border-bottom: 1px solid var(--Hairline);
+}
+@media (min-width: 768px) {
+  .steps li { padding: var(--space-4); border-bottom: 0; }
+  .steps li:first-child { padding-left: 0; }
+}
+.steps .num { font: 600 32px/38px var(--font-garamond); color: var(--Slate); }
+.steps h3 { font: 600 24px/30px var(--font-garamond); }
+.steps p { font: 400 14px/22px var(--font-inter); color: var(--Slate); }
+
+/* Feature panel (washi) -------------------------------------------------- */
+
+.feature {
+  display: grid;
+  background: var(--washi);
+  color: #111111; /* washi is the same in both themes; keep ink dark on it */
+}
+@media (min-width: 960px) {
+  .feature { grid-template-columns: 1fr 1fr; }
+}
+.feature__copy {
+  display: grid;
+  align-content: center;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-4);
+}
+@media (min-width: 768px) {
+  .feature__copy { padding: var(--space-6); }
+}
+.feature__copy .eyebrow,
+.feature__copy .body-sm { color: #626262; }
+.feature img { width: 100%; height: 100%; object-fit: cover; }
+
+.facts { display: grid; gap: var(--space-3); }
+.facts div { display: grid; gap: var(--space-1); padding-top: var(--space-3); border-top: 1px solid #767676; }
+.facts dt { font: 600 18px/24px var(--font-garamond); }
+.facts dd { font: 400 14px/22px var(--font-inter); color: #626262; }
+
+/* Visit + enquiry -------------------------------------------------------- */
+
+.visit {
+  display: grid;
+  gap: var(--space-5);
+}
+@media (min-width: 960px) {
+  .visit { grid-template-columns: 5fr 7fr; gap: var(--space-6); }
+}
+.visit figure { display: grid; gap: var(--space-2); }
+
+.form {
+  display: grid;
+  gap: var(--space-4);
+  background: var(--warmpaper);
+  padding: var(--space-4);
+}
+@media (min-width: 768px) {
+  .form { padding: var(--space-5); grid-template-columns: 1fr 1fr; }
+  .form .field--wide,
+  .form .form__foot { grid-column: 1 / -1; }
+}
+.field { display: grid; gap: var(--space-2); }
+.field label { font: 500 14px/20px var(--font-inter); }
+.field .hint { font: 400 12px/18px var(--font-inter); color: var(--Slate); }
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/1.5 var(--font-inter);
+}
+.field textarea { min-height: 128px; resize: vertical; }
+.form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.form__status { font: 400 14px/22px var(--font-inter); }
+
+/* Footer ----------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--Hairline);
+  padding: var(--space-6) 0 var(--space-5);
+}
+.site-footer .container {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  text-align: center;
+}
+.site-footer img { width: 120px; height: 120px; }
+.site-footer nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2) var(--space-4); list-style: none; padding: 0; }
+.site-footer nav a { color: var(--ink); font: 400 14px/22px var(--font-inter); }
+
+/* No status colours yet: red means the brand, so errors use weight and words. */
+.field [aria-invalid="true"] { border-width: 2px; border-color: var(--ink); }
+
+/* Style guide ------------------------------------------------------------ */
+
+.swatches { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); list-style: none; padding: 0; }
+.swatch { border: 1px solid var(--Hairline); background: var(--paper); }
+.swatch__chip { height: 88px; border-bottom: 1px solid var(--Hairline); }
+.swatch__meta { display: grid; gap: var(--space-1); padding: var(--space-2) var(--space-3) var(--space-3); }
+.swatch__meta code { font: 400 12px/18px ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--Slate); }
+
+.type-specimens { display: grid; border-top: 1px solid var(--Hairline); }
+.type-specimens > div { display: grid; gap: var(--space-2); padding: var(--space-4) 0; border-bottom: 1px solid var(--Hairline); }
+@media (min-width: 768px) {
+  .type-specimens > div { grid-template-columns: 200px 1fr; align-items: baseline; gap: var(--space-4); }
+}
+
+.scale { display: grid; gap: var(--space-3); list-style: none; padding: 0; }
+.scale li { display: grid; grid-template-columns: 120px 1fr; align-items: center; gap: var(--space-3); }
+.scale .bar { height: 16px; background: var(--ink); }
+
+.radii { display: flex; flex-wrap: wrap; gap: var(--space-4); list-style: none; padding: 0; }
+.radii li { display: grid; gap: var(--space-2); justify-items: start; }
+.radii .shape { width: 88px; height: 88px; border: 1px solid var(--border); background: var(--warmpaper); }
