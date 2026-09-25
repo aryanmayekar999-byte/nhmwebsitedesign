@@ -191,6 +191,7 @@ a { color: var(--NHMred); text-underline-offset: 3px; }
 .ledger .year { font-variant-numeric: tabular-nums; }
 
 .ledger .note { font: 400 14px/22px var(--font-inter); color: var(--Slate); }
+.ledger .eligibility { font: 500 14px/20px var(--font-inter); white-space: nowrap; }
 
 @media (max-width: 640px) {
   .ledger thead { display: none; }

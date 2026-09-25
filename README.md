@@ -38,4 +38,5 @@ To publish on GitHub Pages, set **Settings → Pages → Source** to this branch
 - **Enquiries:** the contact section says enquiries open soon and has no form. Add a working channel (an email link, or a form service such as Formspree or your CRM) once you're ready to receive enquiries. Never show a form that doesn't send.
 - **Claims:** the sourcing, inspection, documentation and delivery copy is written as the plan. Change it to present tense only once those partners and processes exist.
 - **Archive:** it's an example of the models NHM plans to source, with no stock or status. Replace it with real cars when there is stock.
+- **Import eligibility:** the site assumes India's vintage rule is a rolling 50-year cutoff. The archive's "India import" column is recalculated from the current year in the browser; each row's `data-built-from` and `data-built-to` attributes drive it. Update the copy and script if the rule changes.
 - **Photography:** all images are concept renders, not real premises or cars.

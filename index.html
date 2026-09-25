@@ -73,7 +73,7 @@
           <div class="story__copy">
             <p class="eyebrow">Why Japanese classics</p>
             <h2 id="story-title" class="heading-1">Find a different story</h2>
-            <p class="body">Your fellow founders already own Porsches. The Fairlady Z, the Skyline GT-R and the first NSX were built with the same obsession and are still rarely seen on Indian roads.</p>
+            <p class="body">Your fellow founders already own Porsches. The Fairlady Z, the Toyota 2000GT and the first Skyline GT-R were built with the same obsession, and they're still rarely seen on Indian roads.</p>
             <p class="body">NHM is for collectors who want a car with a story they can tell, and paperwork to prove it.</p>
           </div>
         </div>
@@ -85,49 +85,62 @@
         <div class="section-head">
           <p class="eyebrow">Example archive</p>
           <h2 id="archive-title" class="heading-1">The kinds of cars we plan to source</h2>
-          <p class="body">This shows how the archive will log each car by chassis code. None of these cars is in stock or for sale.</p>
+          <p class="body">India allows a car to be imported as vintage once it's 50 years old. The cutoff rolls forward, so each year another model year becomes eligible. This example shows how the archive will log each car by chassis code and when it qualifies. None of these cars is in stock or for sale.</p>
         </div>
 
         <table class="ledger">
-          <caption class="visually-hidden">Example archive: models Nihon Heritage Motors plans to source</caption>
+          <caption class="visually-hidden">Example archive: models Nihon Heritage Motors plans to source, and when each becomes eligible for import to India</caption>
           <thead>
             <tr>
-              <th scope="col">Era</th>
+              <th scope="col">Built</th>
               <th scope="col">Model</th>
               <th scope="col">Chassis</th>
+              <th scope="col">India import</th>
               <th scope="col">Why it's on the list</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="year">1969–73</td>
+            <tr data-built-from="1967" data-built-to="1970">
+              <td class="year">1967–70</td>
+              <td class="model">Toyota 2000GT</td>
+              <td class="chassis">MF10</td>
+              <td class="eligibility">Eligible now</td>
+              <td class="note">Japan's first supercar; only about 350 were built.</td>
+            </tr>
+            <tr data-built-from="1969" data-built-to="1972">
+              <td class="year">1969–72</td>
               <td class="model">Nissan Skyline 2000GT-R</td>
               <td class="chassis">PGC10 / KPGC10</td>
-              <td class="note">The original GT-R, and the rarest car on this list.</td>
+              <td class="eligibility">Eligible now</td>
+              <td class="note">The original GT-R.</td>
             </tr>
-            <tr>
+            <tr data-built-from="1969" data-built-to="1973">
               <td class="year">1969–73</td>
               <td class="model">Datsun 240Z / Fairlady Z</td>
               <td class="chassis">HS30 / S30</td>
+              <td class="eligibility">Eligible now</td>
               <td class="note">The Japanese sports car that took on Europe.</td>
             </tr>
-            <tr>
+            <tr data-built-from="1970" data-built-to="1977">
+              <td class="year">1970–77</td>
+              <td class="model">Toyota Celica</td>
+              <td class="chassis">TA22</td>
+              <td class="eligibility">Eligible now (1970–1976 cars)</td>
+              <td class="note">Toyota's first specialty coupe.</td>
+            </tr>
+            <tr data-built-from="1978" data-built-to="1985">
               <td class="year">1978–85</td>
               <td class="model">Mazda Savanna RX-7</td>
               <td class="chassis">SA22C</td>
-              <td class="note">Light, balanced, and rotary-powered.</td>
+              <td class="eligibility">From 2028</td>
+              <td class="note">Light, balanced and rotary-powered.</td>
             </tr>
-            <tr>
+            <tr data-built-from="1989" data-built-to="1994">
               <td class="year">1989–94</td>
               <td class="model">Nissan Skyline GT-R</td>
               <td class="chassis">BNR32</td>
+              <td class="eligibility">From 2039</td>
               <td class="note">The car that brought the GT-R name back.</td>
-            </tr>
-            <tr>
-              <td class="year">1990–2005</td>
-              <td class="model">Honda NSX</td>
-              <td class="chassis">NA1 / NA2</td>
-              <td class="note">A mid-engined everyday supercar.</td>
             </tr>
           </tbody>
         </table>
@@ -145,7 +158,7 @@
           <li>
             <span class="num" aria-hidden="true">01</span>
             <h3>Source</h3>
-            <p>Search auctions and private collections against your brief, and shortlist the cars worth a second look.</p>
+            <p>Search auctions and private collections against your brief, shortlisting only cars old enough to import as vintage.</p>
           </li>
           <li>
             <span class="num" aria-hidden="true">02</span>
@@ -235,5 +248,20 @@
       <p class="caption">© 2026 Nihon Heritage Motors. In development: all images are concept renders and the archive is an example.</p>
     </div>
   </footer>
+
+  <script>
+    // India's vintage rule is a rolling 50-year cutoff. Recompute each row
+    // from the current year so the archive stays right without edits.
+    (function () {
+      var cutoff = new Date().getFullYear() - 50;
+      document.querySelectorAll('tr[data-built-from]').forEach(function (row) {
+        var from = +row.dataset.builtFrom, to = +row.dataset.builtTo;
+        row.querySelector('.eligibility').textContent =
+          to <= cutoff ? 'Eligible now'
+          : from <= cutoff ? 'Eligible now (' + from + '\u2013' + cutoff + ' cars)'
+          : 'From ' + (from + 50);
+      });
+    })();
+  </script>
 </body>
 </html>
