@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to buy a classic car from Japan online — Nihon Heritage Motors</title>
+  <meta name="description" content="A step-by-step guide to buying a classic Japanese car online and importing it to India, with an eligibility checker and landed-cost calculator.">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/nhm-ring-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Nihon Heritage Motors, home">
+        <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="104" height="104">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html" aria-current="page">Buying guide</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Buying guide</p>
+        <h1 id="page-title" class="heading-1">How to buy a classic car from Japan online</h1>
+        <p class="body">Twelve steps from choosing a car to looking after it in India. You can do them yourself, or have NHM handle everything except the purchase itself. The rules and rates change, so confirm each step with a licensed customs broker before you bid.</p>
+        <p class="notice"><strong>General guidance, not legal or tax advice.</strong> Based on India's vintage import policy as published in DGFT Notification 58/2024-25 (February 2025).</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Guide">
+      <div class="container guide-layout">
+        <nav class="toc" aria-label="Steps">
+          <ol>
+            <li><a href="#eligible">Check the car is eligible</a></li>
+            <li><a href="#rules">Know the import rules</a></li>
+            <li><a href="#cost">Work out the landed cost</a></li>
+            <li><a href="#route">Choose how to buy</a></li>
+            <li><a href="#register">Register and pay a deposit</a></li>
+            <li><a href="#auction-sheet">Read the auction sheet</a></li>
+            <li><a href="#inspect">Get an independent inspection</a></li>
+            <li><a href="#win">Win, pay and deregister</a></li>
+            <li><a href="#ship">Ship it to India</a></li>
+            <li><a href="#customs">Clear customs</a></li>
+            <li><a href="#rto">Register it as vintage</a></li>
+            <li><a href="#maintain">Look after it</a></li>
+          </ol>
+        </nav>
+
+        <ol class="guide-steps">
+          <li class="guide-step" id="eligible">
+            <h2 class="heading-2">Check the car is eligible</h2>
+            <p class="body">India allows a car to be imported as vintage once it is 50 years old. The cutoff rolls forward, so each year another model year qualifies. Enter the year the car was built, or first registered if that's what your broker uses.</p>
+            <form class="tool" id="elig-form" novalidate>
+              <div class="inline-form">
+                <div class="field">
+                  <label for="elig-year">Year built</label>
+                  <input id="elig-year" name="year" type="number" inputmode="numeric" min="1886" max="2100" placeholder="e.g. 1972" required>
+                </div>
+                <button class="btn" type="submit">Check</button>
+              </div>
+              <div class="tool__result" id="elig-result" role="status" aria-live="polite" hidden></div>
+            </form>
+          </li>
+
+          <li class="guide-step" id="rules">
+            <h2 class="heading-2">Know the import rules</h2>
+            <p class="body">Under the 2025 policy, a vintage car can be imported freely by its actual user, without an import licence. Plan around these conditions:</p>
+            <ul class="body">
+              <li><strong>Import it in your own name.</strong> The policy is for the person who will own and use the car. That's why, with NHM, you are always the buyer.</li>
+              <li><strong>It's for personal use.</strong> The policy restricts reselling imported vintage cars in India. Ask your broker what applies before you buy.</li>
+              <li><strong>It must meet road rules to be driven.</strong> Vintage cars used on public roads must comply with the Motor Vehicles Act and be registered as vintage.</li>
+              <li><strong>India drives on the left,</strong> like Japan, so Japanese-market cars are already right-hand drive.</li>
+            </ul>
+          </li>
+
+          <li class="guide-step" id="cost">
+            <h2 class="heading-2">Work out the landed cost</h2>
+            <p class="body">Duty and tax usually add far more than the car's price. Get quotes from your agent, shipper and customs broker, and enter them below. Nothing is pre-filled for duty, tax or exchange rate because they change; use the rates your broker confirms.</p>
+            <form class="tool" id="calc" novalidate>
+              <div class="tool__grid">
+                <fieldset>
+                  <legend>In Japan (yen)</legend>
+                  <div class="field"><label for="c-price">Car price or winning bid</label><input id="c-price" name="price" type="number" inputmode="decimal" min="0" step="1000" placeholder="e.g. 3500000" required></div>
+                  <div class="field"><label for="c-fees">Auction and agent fees</label><input id="c-fees" name="fees" type="number" inputmode="decimal" min="0" step="1000" placeholder="Agent's quote"></div>
+                  <div class="field"><label for="c-inland">Inland transport and export papers</label><input id="c-inland" name="inland" type="number" inputmode="decimal" min="0" step="1000" placeholder="Agent's quote"></div>
+                  <div class="field"><label for="c-freight">Freight and marine insurance</label><input id="c-freight" name="freight" type="number" inputmode="decimal" min="0" step="1000" placeholder="Shipper's quote"></div>
+                </fieldset>
+                <fieldset>
+                  <legend>Rates</legend>
+                  <div class="field"><label for="c-rate">Exchange rate (₹ per ¥1)</label><input id="c-rate" name="rate" type="number" inputmode="decimal" min="0" step="0.0001" placeholder="Today's rate" required></div>
+                  <div class="field"><label for="c-duty">Customs duty (%)</label><input id="c-duty" name="duty" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Broker's rate" required></div>
+                  <div class="field"><label for="c-gst">IGST and cess (%)</label><input id="c-gst" name="gst" type="number" inputmode="decimal" min="0" step="0.01" placeholder="Broker's rate" required></div>
+                </fieldset>
+                <fieldset>
+                  <legend>In India (rupees)</legend>
+                  <div class="field"><label for="c-clear">Port, clearance and broker</label><input id="c-clear" name="clear" type="number" inputmode="decimal" min="0" step="100" placeholder="Broker's quote"></div>
+                  <div class="field"><label for="c-reg">Registration and delivery</label><input id="c-reg" name="reg" type="number" inputmode="decimal" min="0" step="100" placeholder="Your estimate"></div>
+                </fieldset>
+              </div>
+              <div class="actions">
+                <button class="btn" type="submit">Calculate</button>
+                <button class="btn" type="reset">Clear</button>
+              </div>
+              <p class="form__status" id="calc-error" role="alert"></p>
+              <div class="tool__result" id="calc-result" hidden>
+                <p class="eyebrow">Estimated landed cost</p>
+                <p class="tool__big" id="calc-total"></p>
+                <table class="breakdown" id="calc-breakdown"><caption class="visually-hidden">Cost breakdown</caption><tbody></tbody></table>
+                <p class="caption" style="margin-top: var(--space-3)">Simplified: duty is charged on the CIF value (car, fees, inland transport, freight and insurance), and IGST on CIF plus duty. Your broker's assessment is what counts.</p>
+              </div>
+            </form>
+          </li>
+
+          <li class="guide-step" id="route">
+            <h2 class="heading-2">Choose how to buy</h2>
+            <p class="body">There are three routes. The <a href="auctions.html">auctions page</a> lists services for each.</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th scope="col">Route</th><th scope="col">How it works</th><th scope="col">Best for</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Auction agent</strong></td><td>An agent bids at dealer auctions for you, within your limit.</td><td>The widest choice at trade prices</td></tr>
+                  <tr><td><strong>Exporter stock</strong></td><td>Buy a car an exporter or dealer already owns, at a listed price.</td><td>Seeing the car before you commit</td></tr>
+                  <tr><td><strong>Collector auction</strong></td><td>Register and bid at a specialist sale.</td><td>Rare, well-documented cars</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="with-nhm"><strong>With NHM:</strong> we search auctions, dealers and collectors for you and send a shortlist with translated auction sheets. <a href="services.html#find">About the search</a></p>
+          </li>
+
+          <li class="guide-step" id="register">
+            <h2 class="heading-2">Register and pay a deposit</h2>
+            <p class="body">Open an account with your agent or exporter. Agents usually ask for a refundable deposit before they will bid. Before you send money:</p>
+            <ul class="body">
+              <li>Check that the company is real: look for JUMVEA membership and a company bank account in its own name.</li>
+              <li>Agree the fees in writing: agent commission, auction fees, inland transport, export papers and shipping.</li>
+              <li>Confirm that they will ship to India and supply what your broker needs for a vintage import.</li>
+            </ul>
+          </li>
+
+          <li class="guide-step" id="auction-sheet">
+            <h2 class="heading-2">Read the auction sheet</h2>
+            <p class="body">Every dealer-auction car has an inspector's sheet in Japanese. Ask your agent for a full translation. The key parts:</p>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th scope="col">Item</th><th scope="col">What it means</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Overall grade</strong></td><td>Usually 1 to 6, with S for nearly new. R or RA means accident repair. Classics are often ungraded or graded low simply for their age, so read the notes.</td></tr>
+                  <tr><td><strong>Interior and exterior</strong></td><td>Letters from A (excellent) to E (poor).</td></tr>
+                  <tr><td><strong>Condition map</strong></td><td>A drawing of the car marked with codes, each followed by a number from 1 (minor) to 3 (severe).</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th scope="col">Code</th><th scope="col">Meaning</th><th scope="col">Code</th><th scope="col">Meaning</th></tr></thead>
+                <tbody>
+                  <tr><td><code>A</code></td><td>Scratch</td><td><code>S</code></td><td>Rust</td></tr>
+                  <tr><td><code>U</code></td><td>Dent</td><td><code>C</code></td><td>Corrosion</td></tr>
+                  <tr><td><code>B</code></td><td>Dent with scratch</td><td><code>X</code></td><td>Needs replacing</td></tr>
+                  <tr><td><code>W</code></td><td>Wave or repaired panel</td><td><code>XX</code></td><td>Replaced</td></tr>
+                  <tr><td><code>Y</code></td><td>Crack or hole</td><td><code>P</code></td><td>Paint marks</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+
+          <li class="guide-step" id="inspect">
+            <h2 class="heading-2">Get an independent inspection</h2>
+            <p class="body">An auction sheet is a quick check, not a survey. For a classic, pay for an inspector to see the car before you bid or buy.</p>
+            <ul class="body">
+              <li>Photographs of the underside, floors, sills and suspension mounts.</li>
+              <li>The chassis plate and engine number, to confirm the car is what it claims to be.</li>
+              <li>A cold start and a short video of the engine running.</li>
+              <li>Any service books, previous owners' records and the Japanese registration papers.</li>
+            </ul>
+            <p class="body">Each <a href="listings.html">listing</a> has model-specific things to check.</p>
+            <p class="with-nhm"><strong>With NHM:</strong> we arrange the inspection and send you the report before you commit. <a href="services.html#inspect">About inspections</a></p>
+          </li>
+
+          <li class="guide-step" id="win">
+            <h2 class="heading-2">Win, pay and deregister</h2>
+            <p class="body">If you win, you'll usually have a few working days to pay the balance by bank transfer. The seller then deregisters the car for export and issues an <strong>export certificate</strong>, the Japanese document that proves the car's identity and first registration. Keep the original safe; customs and your RTO will need it.</p>
+          </li>
+
+          <li class="guide-step" id="ship">
+            <h2 class="heading-2">Ship it to India</h2>
+            <ul class="body">
+              <li><strong>Container:</strong> the car is sealed in its own or a shared container. It costs more and is safer, so it's the usual choice for a valuable classic.</li>
+              <li><strong>Roll-on, roll-off (RoRo):</strong> the car is driven onto a car carrier. It costs less, but the car must run and is more exposed.</li>
+              <li>Main ports for cars include Nhava Sheva (Mumbai), Chennai and Mundra. Choose one where your broker works.</li>
+              <li>Insure the car for its full value in transit, with marine insurance.</li>
+            </ul>
+            <p class="with-nhm"><strong>With NHM:</strong> we arrange collection, export papers, container shipping and insurance once you have paid the seller. <a href="services.html#ship">About shipping</a></p>
+          </li>
+
+          <li class="guide-step" id="customs">
+            <h2 class="heading-2">Clear customs</h2>
+            <p class="body">Appoint a licensed customs broker at the port before the car sails. They file the bill of entry, assess duty and IGST, and arrange release. Typical documents:</p>
+            <ul class="body">
+              <li>Commercial invoice and proof of payment</li>
+              <li>Bill of lading and marine insurance certificate</li>
+              <li>Japanese export certificate, showing the car's age</li>
+              <li>Your identity documents, and anything else your broker asks for</li>
+            </ul>
+            <p class="with-nhm"><strong>With NHM:</strong> we coordinate clearance with a licensed broker at the port.</p>
+          </li>
+
+          <li class="guide-step" id="rto">
+            <h2 class="heading-2">Register it as vintage</h2>
+            <p class="body">To drive it on public roads, register the car as vintage with your state's transport authority under the Central Motor Vehicles Rules. Vintage cars get their own registration series and conditions of use. Take the customs papers, the export certificate and proof of the car's age.</p>
+            <p class="with-nhm"><strong>With NHM:</strong> we prepare the registration papers and take the car to your transport authority.</p>
+          </li>
+          <li class="guide-step" id="maintain">
+            <h2 class="heading-2">Look after it</h2>
+            <p class="body">A classic needs regular care from people who know it: fluids and rubber that age even when the car sits, carburettors that need setting up, and parts that often have to come from Japan. Plan for servicing before the car arrives.</p>
+            <p class="with-nhm"><strong>With NHM:</strong> we check the car on arrival, service and maintain it, and source parts from Japan. <a href="services.html#maintain">About service and maintenance</a></p>
+            <div class="actions">
+              <a class="btn btn--primary" href="services.html">How the concierge works</a>
+              <a class="btn" href="auctions.html">Auction sites</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="120" height="120" loading="lazy">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="woodward.html">Woodward Avenue</a></li>
+          <li><a href="credits.html">Photo credits</a></li>
+          <li><a href="styleguide.html">Style guide</a></li>
+        </ul>
+      </nav>
+      <p class="caption">© 2026 Nihon Heritage Motors. General guidance only, not legal or tax advice.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/guide.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listings — Nihon Heritage Motors</title>
+  <meta name="description" content="Profiles of the classic Japanese cars Nihon Heritage Motors plans to source, with when each becomes eligible for import to India.">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/nhm-ring-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Nihon Heritage Motors, home">
+        <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="104" height="104">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html" aria-current="page">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Listings</p>
+        <h1 id="page-title" class="heading-1">Cars we can help you find</h1>
+        <p class="body">Profiles of classic Japanese models, each with the year it becomes eligible for import to India under the rolling 50-year vintage rule.</p>
+        <p class="notice"><strong>These are model profiles, not cars for sale.</strong> NHM doesn't sell cars. We help you find one and buy it yourself. See <a href="services.html">how the concierge works</a>, or go it alone with the <a href="auctions.html">auction sites</a> and the <a href="guide.html">buying guide</a>.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Listings">
+      <div class="container">
+        <form class="filters" id="filters" role="search" aria-label="Filter listings">
+          <div class="field">
+            <label for="q">Search</label>
+            <input id="q" name="q" type="search" placeholder="Model or chassis code">
+          </div>
+          <div class="field">
+            <label for="make">Make</label>
+            <select id="make" name="make"><option value="">All makes</option></select>
+          </div>
+          <div class="field">
+            <label for="elig">India import</label>
+            <select id="elig" name="elig">
+              <option value="">Any</option>
+              <option value="now">Eligible now</option>
+              <option value="upcoming">Not yet eligible</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sort">Sort by</label>
+            <select id="sort" name="sort">
+              <option value="oldest">Oldest first</option>
+              <option value="newest">Newest first</option>
+              <option value="name">Model name</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="results-bar">
+          <p class="results-count" id="count" role="status" aria-live="polite"></p>
+          <button class="btn" type="button" id="reset">Clear filters</button>
+        </div>
+
+        <ul class="cards" id="results"></ul>
+        <div class="empty" id="empty" hidden>
+          <p class="body">No listings match those filters.</p>
+        </div>
+        <noscript><p class="body">Turn on JavaScript to browse and filter the listings.</p></noscript>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="120" height="120" loading="lazy">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="woodward.html">Woodward Avenue</a></li>
+          <li><a href="credits.html">Photo credits</a></li>
+          <li><a href="styleguide.html">Style guide</a></li>
+        </ul>
+      </nav>
+      <p class="caption">© 2026 Nihon Heritage Motors. Car photos: see <a href="credits.html">photo credits</a>. Listings are model profiles, not stock.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/photos.js"></script>
+  <script src="js/listings.js"></script>
+</body>
+</html>

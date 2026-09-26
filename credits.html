@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo credits — Nihon Heritage Motors</title>
+  <meta name="description" content="Credits and licences for the photographs used on the Nihon Heritage Motors website.">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/nhm-ring-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Nihon Heritage Motors, home">
+        <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="104" height="104">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Credits</p>
+        <h1 id="page-title" class="heading-1">Photo credits</h1>
+        <p class="body">The car photographs come from Wikimedia Commons and are used under the licences shown. They show examples of each model, not cars NHM has for sale. Some have been cropped and resized.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cars-title">
+      <div class="container">
+        <h2 id="cars-title" class="heading-2" style="margin-bottom: var(--space-4)">Listing photographs</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th scope="col">Model</th><th scope="col">Photographer</th><th scope="col">Licence</th><th scope="col">Source</th></tr>
+            </thead>
+            <tbody id="credits"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="renders-title">
+      <div class="container prose">
+        <h2 id="renders-title" class="heading-2">Brand imagery</h2>
+        <p class="body">The showroom, grille badge and stationery images are concept renders made for NHM's brand. They don't show real premises or a real car.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="120" height="120" loading="lazy">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="woodward.html">Woodward Avenue</a></li>
+          <li><a href="credits.html">Photo credits</a></li>
+          <li><a href="styleguide.html">Style guide</a></li>
+        </ul>
+      </nav>
+      <p class="caption">© 2026 Nihon Heritage Motors.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/photos.js"></script>
+  <script>
+    (function () {
+      var tbody = document.getElementById('credits');
+      var link = function (href, text) {
+        var a = document.createElement('a');
+        a.href = href; a.textContent = text; a.rel = 'noopener'; a.target = '_blank';
+        return a;
+      };
+      NHM.listings.forEach(function (car) {
+        var p = NHM.photos[car.id];
+        if (!p) return;
+        var tr = document.createElement('tr');
+        var model = document.createElement('td');
+        model.appendChild(link('listing.html?id=' + encodeURIComponent(car.id), car.make + ' ' + car.model + ' (' + car.chassis + ')'));
+        model.firstChild.removeAttribute('target');
+        var author = document.createElement('td'); author.textContent = p.author;
+        var lic = document.createElement('td');
+        lic.append(p.licenseUrl ? link(p.licenseUrl, p.license) : p.license);
+        var src = document.createElement('td'); src.appendChild(link(p.page, p.title));
+        tr.append(model, author, lic, src);
+        tbody.appendChild(tr);
+      });
+    })();
+  </script>
+</body>
+</html>
