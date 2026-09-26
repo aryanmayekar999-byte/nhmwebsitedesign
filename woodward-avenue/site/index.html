@@ -183,6 +183,12 @@
     </div>
   </section>
 
+  <section class="currency-section light" id="currency" aria-labelledby="currency-title">
+    <p class="eyebrow">Currency guide</p><h2 class="h2" id="currency-title">Plan a US purchase in rupees.</h2>
+    <p class="lead">Convert a USD asking price to an indicative INR amount. Shipping, insurance, duties, clearance and concierge fees are separate and require written quotes.</p>
+    <div class="fx-tool" id="fx-tool" data-default-source="USD"><div class="fx-tool__fields"><div class="field"><label for="fx-amount">Amount in US dollars</label><input id="fx-amount" type="number" min="0" step="any" inputmode="decimal" value="25000"></div><div class="field"><label for="fx-source">Source currency</label><select id="fx-source"><option value="USD">USD · US dollar</option></select></div></div><p class="fx-tool__result" id="fx-result" aria-live="polite">Checking reference rates…</p><p class="fx-tool__status" id="fx-status" role="status"></p><p class="fx-tool__note">Daily reference rates from <a href="https://www.exchangerate-api.com">Exchange Rate API</a>. Indicative only; confirm the transaction rate with your bank or broker.</p></div>
+  </section>
+
   <section class="contact light" id="contact" aria-labelledby="contact-title">
     <div class="contact__text">
       <p class="eyebrow">Contact</p>
@@ -257,5 +263,6 @@
   })();
 </script>
 <script src="js/main.js" defer></script>
+<script src="js/currency.js" defer></script>
 </body>
 </html>

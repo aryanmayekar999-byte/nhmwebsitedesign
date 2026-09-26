@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>How to buy a classic car from Japan online — Nihon Heritage Motors</title>
+  <title>How to buy a classic Japanese car — Nihon Heritage Motors</title>
   <meta name="description" content="A step-by-step guide to buying a classic Japanese car online and importing it to India, with an eligibility checker and landed-cost calculator.">
   <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/brand/nhm-ring-180.png">
@@ -37,7 +37,7 @@
     <section class="page-intro" aria-labelledby="page-title">
       <div class="container">
         <p class="eyebrow">Buying guide</p>
-        <h1 id="page-title" class="heading-1">How to buy a classic car from Japan online</h1>
+        <h1 id="page-title" class="heading-1">How to buy a classic Japanese car</h1>
         <p class="body">Twelve steps from choosing a car to looking after it in India. NHM is preparing a concierge service; the process below is for research until that service launches. Rules and rates change, so confirm each step with a qualified customs broker before you bid.</p>
         <p class="notice"><strong>General guidance, not legal or tax advice.</strong> Read <a href="https://content.dgft.gov.in/Website/dgftprod/646b345f-2157-4549-9ae9-94ee7f8c3a71/Notification%20no.%2058%20dated%2007.02.2025.pdf">DGFT Notification 58/2024-25</a> and <a href="https://transport.mizoram.gov.in/uploads/attachments/2022/02/bdb3aa64497128ccae2fdbd7cc9ab28c/gsr-492e-dt-15-july-2021-vintage-motor-vehicles-rules.pdf">Central Motor Vehicles Rules amendment G.S.R. 492(E)</a>. Confirm current rules with a qualified broker and transport authority.</p>
       </div>
@@ -85,17 +85,24 @@
               <li><strong>Import it in your own name.</strong> The policy is for the person who will own and use the car. That's why, with NHM, you are always the buyer.</li>
               <li><strong>It's for personal use.</strong> The vintage rules restrict use and transfers; confirm the current conditions with your broker and registering authority before buying.</li>
               <li><strong>It must meet road rules to be driven.</strong> Vintage vehicles have specific registration and permitted-use conditions; do not assume ordinary daily road use is allowed. Confirm with the registering authority.</li>
-              <li><strong>India drives on the left,</strong> like Japan, so Japanese-market cars are already right-hand drive.</li>
+              <li><strong>Check the steering side.</strong> Japanese-market cars are usually right-hand drive, but Japanese cars sourced in other markets may be left-hand drive. Ask the transport authority about the specific car before committing.</li>
             </ul>
           </li>
 
           <li class="guide-step" id="cost">
             <h2 class="heading-2">Work out the landed cost</h2>
-            <p class="body">Use this worksheet to plan cash needed across the purchase, transport and arrival stages. Enter your agent’s and broker’s written quotes. Customs valuation and tax depend on the specific vehicle and the assessment at import; <a href="https://www.icegate.gov.in/cdc">ICEGATE’s duty calculator</a> and your broker are the sources for a tax figure.</p>
+            <p class="body">Use this worksheet to plan cash needed across the purchase, transport and arrival stages. Enter your agent’s and broker’s written quotes. Cars may be sourced from Japan, the Gulf, Australia, New Zealand or other markets. Enter all purchase and shipping amounts in the selected currency; convert any separately quoted USD freight or other charges into that currency first. Customs valuation and tax depend on the specific vehicle and the assessment at import; <a href="https://www.icegate.gov.in/cdc">ICEGATE’s duty calculator</a> and your broker are the sources for a tax figure.</p>
+            <div class="fx-tool" id="fx-tool" data-default-source="JPY">
+              <h3>Currency guide</h3>
+              <div class="fx-tool__fields"><div class="field"><label for="fx-amount">Foreign amount</label><input id="fx-amount" type="number" min="0" step="any" inputmode="decimal" value="1000000"></div><div class="field"><label for="fx-source">Source currency</label><select id="fx-source"><option value="JPY">JPY · Japanese yen</option><option value="AED">AED · UAE dirham</option><option value="AUD">AUD · Australian dollar</option><option value="NZD">NZD · New Zealand dollar</option><option value="USD">USD · US dollar</option><option value="SGD">SGD · Singapore dollar</option><option value="GBP">GBP · British pound</option><option value="EUR">EUR · euro</option></select></div></div>
+              <p class="fx-tool__result" id="fx-result" aria-live="polite">Checking reference rates…</p><p class="fx-tool__status" id="fx-status" role="status"></p>
+              <button class="btn" id="fx-use-rate" type="button" disabled>Use rate in worksheet</button>
+              <p class="caption">Daily reference rates from <a href="https://www.exchangerate-api.com">Exchange Rate API</a>. They are indicative, not a bank, card, customs or broker rate. Check the timestamp and confirm the transaction rate before paying.</p>
+            </div>
             <form class="tool" id="calc" novalidate>
               <div class="tool__grid">
                 <fieldset>
-                  <legend>Purchase and shipping (JPY)</legend>
+                  <legend>Purchase and shipping (<span id="c-currency-label">JPY</span>)</legend>
                   <div class="field"><label for="c-price">Car price or winning bid</label><input id="c-price" name="price" type="number" inputmode="decimal" min="0" step="1" required></div>
                   <div class="field"><label for="c-fees">Auction and buying-agent fees</label><input id="c-fees" name="fees" type="number" inputmode="decimal" min="0" step="1"></div>
                   <div class="field"><label for="c-inland">Inland transport and export papers</label><input id="c-inland" name="inland" type="number" inputmode="decimal" min="0" step="1"></div>
@@ -104,7 +111,8 @@
                 </fieldset>
                 <fieldset>
                   <legend>Exchange and India costs</legend>
-                  <div class="field"><label for="c-rate">Planning exchange rate (₹ per ¥1)</label><input id="c-rate" name="rate" type="number" inputmode="decimal" min="0" step="0.0001" required></div>
+                  <div class="field"><label for="c-currency">Purchase currency</label><select id="c-currency" name="currency"><option value="JPY">JPY · Japanese yen</option><option value="AED">AED · UAE dirham</option><option value="AUD">AUD · Australian dollar</option><option value="NZD">NZD · New Zealand dollar</option><option value="USD">USD · US dollar</option><option value="SGD">SGD · Singapore dollar</option><option value="GBP">GBP · British pound</option><option value="EUR">EUR · euro</option></select></div>
+                  <div class="field"><label for="c-rate">Planning exchange rate (₹ per 1 <span id="c-rate-label">JPY</span>)</label><input id="c-rate" name="rate" type="number" inputmode="decimal" min="0" step="any" required></div>
                   <div class="field"><label for="c-tax">Customs duties and taxes, broker quote (₹)</label><input id="c-tax" name="tax" type="number" inputmode="decimal" min="0" step="1" required></div>
                   <div class="field"><label for="c-clear">Port and clearance charges (₹)</label><input id="c-clear" name="clear" type="number" inputmode="decimal" min="0" step="1"></div>
                   <div class="field"><label for="c-reg">Registration and delivery (₹)</label><input id="c-reg" name="reg" type="number" inputmode="decimal" min="0" step="1"></div>
@@ -260,5 +268,6 @@
   <script src="js/data.js"></script>
   <script src="js/cost.js"></script>
   <script src="js/guide.js"></script>
+  <script src="js/currency.js"></script>
 </body>
 </html>

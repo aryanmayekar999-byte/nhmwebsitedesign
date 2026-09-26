@@ -40,14 +40,22 @@
   var cError = document.getElementById('calc-error');
   var KEY = 'nhm-calc-v2';
   var names = ['price', 'fees', 'inland', 'freight', 'insurance', 'rate', 'tax', 'clear', 'reg', 'concierge', 'buffer'];
+  var currency = cForm.elements.currency;
   var inr = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
-  var jpy = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY', maximumFractionDigits: 0 });
+  function updateCurrencyLabel() {
+    document.getElementById('c-currency-label').textContent = currency.value;
+    document.getElementById('c-rate-label').textContent = currency.value;
+    cResult.hidden = true;
+  }
+  currency.addEventListener('change', updateCurrencyLabel);
 
   try { localStorage.removeItem('nhm-calc'); } catch (err) { /* old worksheet data unavailable */ }
   try {
     var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+    if (saved.currency && Array.from(currency.options).some(function (option) { return option.value === saved.currency; })) currency.value = saved.currency;
     names.forEach(function (n) { if (saved[n] != null) cForm.elements[n].value = saved[n]; });
   } catch (err) { /* storage unavailable: start empty */ }
+  updateCurrencyLabel();
 
   cForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -70,8 +78,9 @@
     try { plan = NHM.costPlan(values); }
     catch (err) { cError.textContent = 'Check the entered amounts.'; cResult.hidden = true; return; }
     cError.textContent = '';
+    var foreignFormat = new Intl.NumberFormat('en', { style: 'currency', currency: currency.value, maximumFractionDigits: currency.value === 'JPY' ? 0 : 2 });
     var rows = [
-      ['Purchase, fees and transport (JPY)', jpy.format(plan.foreign)],
+      ['Purchase, fees and transport (' + currency.value + ')', foreignFormat.format(plan.foreign)],
       ['Converted purchase and transport', inr.format(plan.converted)],
       ['Broker-quoted customs duties and taxes', inr.format(values.tax)],
       ['Port and clearance', inr.format(values.clear)],
@@ -95,6 +104,7 @@
     try {
       var saved = {};
       names.forEach(function (n) { saved[n] = cForm.elements[n].value; });
+      saved.currency = currency.value;
       localStorage.setItem(KEY, JSON.stringify(saved));
     } catch (err) { /* storage unavailable */ }
   });
@@ -103,6 +113,7 @@
     cResult.hidden = true;
     cError.textContent = '';
     names.forEach(function (n) { cForm.elements[n].removeAttribute('aria-invalid'); });
+    setTimeout(updateCurrencyLabel, 0);
     try { localStorage.removeItem(KEY); } catch (err) { /* ignore */ }
   });
 })();
