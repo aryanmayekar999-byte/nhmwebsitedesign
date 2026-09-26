@@ -4,7 +4,7 @@
 
 - Both sites are static previews. Neither has a checkout, account or enquiry form. NHM's planning worksheet stores values in browser local storage only; no values are submitted to a server by that form.
 - The Cloudflare account has a Worker named `nhmwebsitedesign`, not a Cloudflare Pages project. Its first two builds failed because Wrangler could not find static files. The later `wrangler.jsonc` asset configuration fixed that production build error; the 26 September 2026 08:39 UTC build successfully deployed `woodward-avenue/site/` to `https://nhmwebsitedesign.aryan-0e3.workers.dev/`.
-- Pull request preview builds then failed because `wrangler preview` requires a `previews` configuration block. This branch adds that block; confirm the next Cloudflare preview build succeeds before treating the preview issue as resolved.
+- Pull request preview builds then failed because `wrangler preview` requires a `previews` configuration block. This branch adds that block. Cloudflare reported a successful build and preview deployment for commit `77b69cf` on 26 September 2026. Direct unauthenticated requests to the preview URL returned HTTP 403, so the preview's public accessibility remains unverified.
 - The NHM site and both sites' policy pages are in open GitHub PR #1 for review. They are not merged into `main`.
 
 ## Sources used for the import guidance
