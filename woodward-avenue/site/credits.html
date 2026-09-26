@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photo credits — Woodward Avenue by NHM</title>
+<meta name="description" content="Credits and licences for the car photographs used on the Woodward Avenue by NHM website.">
+<meta name="theme-color" content="#202527">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="site-header__logo" href="index.html" aria-label="Woodward Avenue by NHM — home">
+    <img src="assets/logo/woodward-logo-light.png" alt="Woodward Avenue by NHM" width="1495" height="324">
+  </a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <nav class="site-nav" id="site-nav" aria-label="Primary">
+    <a href="index.html#services">Services</a>
+    <a href="listings.html">Listings</a>
+    <a href="index.html#process">How it works</a>
+    <a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/index.html">Nihon Heritage Motors <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    <a class="btn btn--ivory btn--small" href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main" class="page">
+  <section class="page-intro" aria-labelledby="page-title">
+    <p class="eyebrow">Credits</p>
+    <h1 id="page-title">Photo credits</h1>
+    <p class="lead">The car photographs on this site come from Wikimedia Commons and are used under the licences shown. They show examples of each model, not cars for sale. The storefront, plaque and stationery images are concept renders made for Woodward Avenue by NHM.</p>
+  </section>
+  <section class="page-section" aria-label="Photographs">
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th scope="col">Listing</th><th scope="col">Photograph</th><th scope="col">Author</th><th scope="col">Licence</th></tr></thead>
+        <tbody id="credits"></tbody>
+      </table>
+    </div>
+    <p class="caption" style="margin-top: 16px">Photos have been cropped to a 3:2 frame and resized. No other changes were made.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <img class="site-footer__logo" src="assets/logo/woodward-logo-light.png" alt="Woodward Avenue by NHM" width="1495" height="324" loading="lazy">
+    <div class="site-footer__cols">
+      <nav class="footer-col" aria-label="Footer">
+        <span class="footer-col__title">Explore</span>
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="index.html#process">How it works</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="credits.html">Photo credits</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <span class="footer-col__title">Nihon Heritage Motors</span>
+        <ul>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/index.html">NHM home</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/listings.html">Japanese classics</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/services.html">NHM services</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/guide.html">Buying guide</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/auctions.html">Auctions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <span>© 2026 Woodward Avenue by NHM. Woodward Avenue is launching and not yet taking clients.</span>
+    <span>Listings are model profiles, not stock. Car photos: see <a href="credits.html">photo credits</a>.</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/photos.js"></script>
+<script>
+  (function () {
+    var body = document.getElementById('credits');
+    var link = function (href, text) {
+      var a = document.createElement('a');
+      a.href = href; a.textContent = text; a.rel = 'noopener'; a.target = '_blank';
+      return a;
+    };
+    WA.listings.forEach(function (car) {
+      var p = WA.photos && WA.photos[car.id];
+      if (!p) return;
+      var tr = document.createElement('tr');
+      var td = function (node) { var d = document.createElement('td'); d.append(node); tr.appendChild(d); };
+      var l = document.createElement('a'); l.href = 'listing.html?id=' + encodeURIComponent(car.id); l.textContent = car.make + ' ' + car.model;
+      td(l);
+      td(link(p.page, p.title));
+      td(p.author);
+      td(p.licenseUrl ? link(p.licenseUrl, p.license) : p.license);
+      body.appendChild(tr);
+    });
+  })();
+</script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#202527">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Josefin+Sans:wght@400;600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -23,9 +23,9 @@
   </button>
   <nav class="site-nav" id="site-nav" aria-label="Primary">
     <a href="#services">Services</a>
+    <a href="listings.html">Listings</a>
     <a href="#process">How it works</a>
-    <a href="#provenance">Provenance</a>
-    <a href="#nhm">About NHM</a>
+    <a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/index.html">Nihon Heritage Motors <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
     <a class="btn btn--ivory btn--small" href="#contact">Contact</a>
   </nav>
 </header>
@@ -38,7 +38,7 @@
       <h1>Detroit’s golden era, sourced with care.</h1>
       <p class="lead">Woodward Avenue by NHM is a concierge for collectors in India. We help you find the right American classic in the US and inspect it before you buy. Then we ship it home and look after it for as long as you own it.</p>
       <div class="hero__actions">
-        <a class="btn btn--ivory" href="#services">Our services</a>
+        <a class="btn btn--ivory" href="listings.html">Browse the listings</a>
         <a class="text-link" href="#process">How the concierge works
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
@@ -119,6 +119,31 @@
     </ol>
   </section>
 
+  <section class="featured deep" id="listings" aria-labelledby="listings-title">
+    <div class="section-head">
+      <div class="section-head__title">
+        <p class="eyebrow">Listings</p>
+        <h2 class="h2" id="listings-title">American classics you can import now.</h2>
+      </div>
+      <div class="section-head__aside">
+        <p class="lead">India allows a car to be imported as vintage once it’s 50 years old, so cars built in 1976 or earlier qualify in 2026. These are profiles of cars we can help you find, not stock for sale.</p>
+        <a class="text-link" href="listings.html">See all listings
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="featured__groups">
+      <div class="featured__group">
+        <h3>Luxury cruisers</h3>
+        <ul class="cards" id="featured-luxury"></ul>
+      </div>
+      <div class="featured__group">
+        <h3>Sports and muscle</h3>
+        <ul class="cards" id="featured-sports"></ul>
+      </div>
+    </div>
+  </section>
+
   <section class="originality deep" aria-labelledby="originality-title">
     <img src="assets/images/plaque.jpg" alt="A Woodward Avenue display plaque on a stand beside the chrome grille of a burgundy American classic" width="1600" height="533" loading="lazy">
     <div class="originality__text">
@@ -190,15 +215,19 @@
         <span class="footer-col__title">Explore</span>
         <ul>
           <li><a href="#services">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
           <li><a href="#process">How it works</a></li>
           <li><a href="#provenance">Provenance</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="credits.html">Photo credits</a></li>
         </ul>
       </nav>
       <div class="footer-col">
         <span class="footer-col__title">Nihon Heritage Motors</span>
         <ul>
           <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/index.html">NHM home</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/listings.html">Japanese classics</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/services.html">NHM services</a></li>
           <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/guide.html">Buying guide</a></li>
           <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/auctions.html">Auctions</a></li>
         </ul>
@@ -207,10 +236,24 @@
   </div>
   <div class="site-footer__legal">
     <span>© 2026 Woodward Avenue by NHM. Woodward Avenue is launching and not yet taking clients.</span>
-    <span>Brand images are concept renders.</span>
+    <span>Brand images are concept renders. Car photos: see <a href="credits.html">photo credits</a>.</span>
   </div>
 </footer>
 
+<script src="js/data.js"></script>
+<script src="js/photos.js"></script>
+<script>
+  (function () {
+    var show = function (ids, target) {
+      ids.forEach(function (id) {
+        var car = WA.findListing(id);
+        if (car) document.getElementById(target).appendChild(WA.card(car));
+      });
+    };
+    show(['cadillac-1959', 'lincoln-continental-1961', 'chrysler-300-letter-series'], 'featured-luxury');
+    show(['chevrolet-corvette-c2', 'ford-mustang-1965', 'dodge-charger-1968'], 'featured-sports');
+  })();
+</script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
