@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Listings — Woodward Avenue by NHM</title>
+<meta name="description" content="American classics up to 1976 that collectors in India can import as vintage cars: Cadillac, Lincoln, Imperial, Chrysler 300 letter cars, Corvette, Mustang and more.">
+<meta name="theme-color" content="#202527">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <a class="site-header__logo" href="index.html" aria-label="Woodward Avenue by NHM — home">
+    <img src="assets/logo/woodward-logo-light.png" alt="Woodward Avenue by NHM" width="1495" height="324">
+  </a>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <nav class="site-nav" id="site-nav" aria-label="Primary">
+    <a href="index.html#services">Services</a>
+    <a href="listings.html" aria-current="page">Listings</a>
+    <a href="index.html#process">How it works</a>
+    <a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/index.html">Nihon Heritage Motors <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    <a class="btn btn--ivory btn--small" href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main" class="page">
+  <section class="page-intro" aria-labelledby="page-title">
+    <p class="eyebrow">Listings</p>
+    <h1 id="page-title">American classics, up to 1976</h1>
+    <p class="lead">Luxury cruisers from Cadillac, Lincoln, Imperial and Packard, Chrysler’s 300 letter cars, and America’s great sports and muscle cars. India allows a car to be imported as vintage once it’s 50 years old, and the cutoff rolls forward every year. These are profiles of cars we can help you find, not stock for sale.</p>
+  </section>
+
+  <section class="page-section" aria-label="All listings">
+    <form class="filters" id="filters" role="search" aria-label="Filter listings">
+      <div class="field"><label for="q">Search</label><input id="q" name="q" type="search" placeholder="Model or make" autocomplete="off"></div>
+      <div class="field"><label for="category">Type</label>
+        <select id="category" name="category"><option value="">All types</option></select>
+      </div>
+      <div class="field"><label for="make">Make</label>
+        <select id="make" name="make"><option value="">All makes</option></select>
+      </div>
+      <div class="field"><label for="sort">Sort</label>
+        <select id="sort" name="sort">
+          <option value="oldest">Oldest first</option>
+          <option value="newest">Newest first</option>
+          <option value="name">Make and model</option>
+        </select>
+      </div>
+    </form>
+    <div class="results-bar">
+      <p class="results-count" id="count" aria-live="polite"></p>
+      <button class="btn btn--line btn--small" type="button" id="reset">Clear filters</button>
+    </div>
+    <ul class="cards" id="results"></ul>
+    <p class="empty" id="empty" hidden>No listings match. Try clearing the filters.</p>
+  </section>
+
+  <section class="page-section page-section--panel" aria-labelledby="lhd-title">
+    <div class="prose">
+      <h2 class="section-title" id="lhd-title">Left-hand drive</h2>
+      <p>American cars are left-hand drive, and India drives on the left. Before you buy, ask your broker and your state transport authority how a left-hand-drive vintage car is registered and where it may be driven. We check this with you at the brief stage.</p>
+      <p>Looking for a right-hand-drive Japanese classic instead? See <a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/listings.html">Nihon Heritage Motors’ listings</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <img class="site-footer__logo" src="assets/logo/woodward-logo-light.png" alt="Woodward Avenue by NHM" width="1495" height="324" loading="lazy">
+    <div class="site-footer__cols">
+      <nav class="footer-col" aria-label="Footer">
+        <span class="footer-col__title">Explore</span>
+        <ul>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="index.html#process">How it works</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="credits.html">Photo credits</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <span class="footer-col__title">Nihon Heritage Motors</span>
+        <ul>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/index.html">NHM home</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/listings.html">Japanese classics</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/services.html">NHM services</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/guide.html">Buying guide</a></li>
+          <li><a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/auctions.html">Auctions</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer__legal">
+    <span>© 2026 Woodward Avenue by NHM. Woodward Avenue is launching and not yet taking clients.</span>
+    <span>Listings are model profiles, not stock. Car photos: see <a href="credits.html">photo credits</a>.</span>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/photos.js"></script>
+<script src="js/listings.js"></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
