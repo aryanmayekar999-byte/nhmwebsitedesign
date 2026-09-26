@@ -54,7 +54,9 @@ Examples include the Toyota 2000GT, Nissan Skyline 2000GT-R (PGC10/KPGC10 and KP
 
 ## Woodward Avenue by NHM
 
-A sister service, coming soon, that brings the same concierge to classic American cars, from the first Ford Mustang to the Chevrolet Corvette Sting Ray. It's named for Woodward Avenue, Detroit's famous cruising street, and will have its own website.
+A sister service that brings the same concierge to classic American cars, from the first Ford Mustang to the Chevrolet Corvette Sting Ray. It's named for Woodward Avenue, Detroit's famous cruising street.
+
+Website: <https://nhmwebsitedesign.aryan-0e3.workers.dev/>
 
 ## Brand
 
@@ -71,7 +73,7 @@ The full rules are in the [NHM design system](https://claude.ai/artifact/7Yc2Ckm
 | Listings (`listings.html`) | Profiles of the cars NHM helps clients find, with India eligibility |
 | Auctions (`auctions.html`) | Where Japanese classics are sold, and how to buy through each route |
 | Buying guide (`guide.html`) | Twelve steps from eligibility to maintenance, with an eligibility checker and landed-cost calculator |
-| Woodward Avenue (`woodward.html`) | Introduces Woodward Avenue by NHM |
+| Woodward Avenue (`woodward.html`) | Introduces Woodward Avenue by NHM and links to its website |
 | Photo credits (`credits.html`) | Credits and licences for the car photographs |
 
 How the site is built and maintained is covered in [`README.md`](README.md).
@@ -81,5 +83,4 @@ How the site is built and maintained is covered in [`README.md`](README.md).
 - Put sourcing, inspection, shipping, customs and workshop partners in place.
 - Publish NHM's fees.
 - Open an enquiry channel on the website.
-- Add the Woodward Avenue by NHM website link once it's live.
 - Remove the "launching" notes from the website.

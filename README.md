@@ -14,7 +14,7 @@ For the business itself (what NHM is, its services and the rules it works within
 | `listing.html?id=…` | One model's profile: specification, India eligibility, what to check, related listings |
 | `auctions.html` | Japanese dealer auctions, auction agents, exporter marketplaces and collector auctions that sell abroad |
 | `guide.html` | 12-step buying guide with an eligibility checker and landed-cost calculator |
-| `woodward.html` | Introduces Woodward Avenue by NHM, the sister concierge for American classics (link to be added) |
+| `woodward.html` | Introduces Woodward Avenue by NHM, the sister concierge for American classics, and links to its site (https://nhmwebsitedesign.aryan-0e3.workers.dev/) |
 | `credits.html` | Photo credits for the listing photographs |
 | `styleguide.html` | Live style guide: logo, colour, type, spacing, radius, components |
 | `js/data.js` | Listings data, the rolling 50-year eligibility rule and the shared listing card |
@@ -56,7 +56,7 @@ To publish on GitHub Pages, set **Settings → Pages → Source** to this branch
 ## Before launch
 
 - **Enquiries:** the contact section says NHM isn't taking clients yet and has no form. Add a working channel (an email link, or a form service such as Formspree or your CRM) once you're ready to receive enquiries. Never show a form that doesn't send.
-- **Woodward Avenue link:** when the site is live, replace the "Coming soon" notice (`#woodward-status`) in `woodward.html` with a link to it, and update the home page teaser.
+- **Woodward Avenue link:** the URL appears in `woodward.html` (three places) and the home page teaser. Update all of them if it changes, for example when it moves to a custom domain.
 - **Launch status:** pages say NHM is launching and partners aren't in place. Remove those notes when you open.
 - **Import eligibility:** the site assumes India's vintage rule is a rolling 50-year cutoff. Listing eligibility is recalculated from the current year in the browser. Update the copy and script if the rule changes.
 - **Photography:** the showroom, grille badge and stationery images are concept renders. Listing photos are real cars from Wikimedia Commons under CC0, CC BY or CC BY-SA. Keep their credits in `js/photos.js` whenever you change them, because the licences require attribution.
