@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Listing — Nihon Heritage Motors</title>
+  <meta name="description" content="A classic Japanese car profile from Nihon Heritage Motors: specification, India import eligibility and what to check before buying.">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/nhm-ring-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Nihon Heritage Motors, home">
+        <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="104" height="104">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html" aria-current="page">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-intro" aria-labelledby="page-title">
+      <div class="container">
+        <p class="breadcrumb"><a href="listings.html">Listings</a> / <span id="crumb">Profile</span></p>
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="page-title" class="heading-1">Listing</h1>
+        <p class="body" id="summary"></p>
+      </div>
+    </section>
+
+    <section class="section" id="detail-section" hidden>
+      <div class="container">
+        <div class="detail">
+          <div class="detail__media" id="media"></div>
+          <div class="prose">
+            <dl class="specs" id="specs"></dl>
+            <p class="notice"><strong>Model profile, not a car for sale.</strong> NHM helps you find one, inspects it before you buy, and ships it to India. <a href="services.html">How the concierge works</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--warm" id="checks-section" hidden aria-labelledby="checks-title">
+      <div class="container">
+        <div class="prose">
+          <h2 id="checks-title" class="heading-2">What to check before you bid</h2>
+          <ul class="checklist body" id="checks"></ul>
+          <p class="body">Always ask for the auction sheet and an independent inspection; NHM arranges one before you buy. The <a href="guide.html#auction-sheet">buying guide</a> explains how to read one.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="services.html">Have NHM find one</a>
+            <a class="btn" href="auctions.html">Search the auctions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="more-section" hidden aria-labelledby="more-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="more-title" class="heading-2">More listings</h2>
+        </div>
+        <ul class="cards" id="more"></ul>
+      </div>
+    </section>
+
+    <section class="section" id="missing" hidden>
+      <div class="container prose">
+        <p class="body">We couldn't find that listing. It may have been renamed.</p>
+        <p><a class="btn" href="listings.html">Back to all listings</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/brand/nhm-emblem-512.png" alt="Nihon Heritage Motors" width="120" height="120" loading="lazy">
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="auctions.html">Auctions</a></li>
+          <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="styleguide.html">Style guide</a></li>
+        </ul>
+      </nav>
+      <p class="caption">© 2026 Nihon Heritage Motors. In development: images are concept renders and listings are model profiles, not stock.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    (function () {
+      var car = NHM.findListing(new URLSearchParams(location.search).get('id'));
+      var $ = function (id) { return document.getElementById(id); };
+      if (!car) {
+        $('page-title').textContent = 'Listing not found';
+        $('crumb').textContent = 'Not found';
+        $('missing').hidden = false;
+        return;
+      }
+      var name = car.make + ' ' + car.model;
+      var elig = NHM.eligibility(car.from, car.to);
+      document.title = name + ' (' + car.chassis + ') — Nihon Heritage Motors';
+      $('crumb').textContent = name;
+      $('eyebrow').textContent = NHM.years(car.from, car.to) + ' · ' + car.make;
+      $('page-title').textContent = car.model;
+      $('summary').textContent = car.summary;
+
+      if (car.image) {
+        var fig = document.createElement('figure');
+        var img = document.createElement('img');
+        img.src = car.image; img.alt = car.imageAlt || ''; img.width = 800; img.height = 554;
+        var cap = document.createElement('figcaption');
+        cap.className = 'caption'; cap.textContent = 'Concept render.';
+        fig.append(img, cap);
+        $('media').appendChild(fig);
+      } else {
+        var plate = document.createElement('span');
+        plate.className = 'card__plate'; plate.textContent = car.chassis;
+        $('media').appendChild(plate);
+      }
+
+      [['Make', car.make], ['Model', car.model], ['Chassis', car.chassis], ['Built', NHM.years(car.from, car.to)],
+       ['Body', car.body], ['Engine', car.engine], ['India import', elig.label]].forEach(function (row) {
+        var d = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd');
+        dt.textContent = row[0]; dd.textContent = row[1];
+        d.append(dt, dd); $('specs').appendChild(d);
+      });
+
+      car.checks.forEach(function (c) {
+        var li = document.createElement('li'); li.textContent = c; $('checks').appendChild(li);
+      });
+
+      var others = NHM.listings.filter(function (c) { return c.id !== car.id; })
+        .sort(function (a, b) { return (a.make === car.make ? 0 : 1) - (b.make === car.make ? 0 : 1) || Math.abs(a.from - car.from) - Math.abs(b.from - car.from); })
+        .slice(0, 3);
+      others.forEach(function (c) { $('more').appendChild(NHM.card(c)); });
+
+      $('detail-section').hidden = $('checks-section').hidden = $('more-section').hidden = false;
+    })();
+  </script>
+</body>
+</html>
