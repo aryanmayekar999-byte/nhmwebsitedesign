@@ -1,0 +1,12 @@
+// Cloudflare deploy config for the Woodward Avenue by NHM site.
+// Serves woodward-avenue/site/ as static files. The NHM site at the repo
+// root is published by GitHub Pages and is not deployed from here.
+// "name" must match the Worker's name in the Cloudflare dashboard.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "woodward-avenue",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./woodward-avenue/site"
+  }
+}

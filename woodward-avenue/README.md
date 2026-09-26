@@ -10,36 +10,34 @@ python3 -m http.server 8000 --directory woodward-avenue/site
 
 ## Hosting
 
-Woodward Avenue is hosted on **Cloudflare Pages**, on its free cloud address: **`https://woodward-avenue.pages.dev`**. No domain has to be bought.
+Woodward Avenue is hosted on **Cloudflare**, as a Worker that serves static files, at its free cloud address: **`https://woodward-avenue.<your-account>.workers.dev`**. No domain has to be bought.
 
-This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves from the repo root. GitHub Pages allows only one site per repo, so Woodward Avenue is deployed from this folder by Cloudflare instead. Both sites stay in this repo.
+This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves from the repo root. GitHub Pages allows only one site per repo, so Woodward Avenue is deployed to Cloudflare instead. Both sites stay in this repo.
 
-### One-time setup (about 5 minutes)
+`wrangler.jsonc` at the repo root tells Cloudflare what to deploy: the files in `woodward-avenue/site/`, and nothing else. Check it locally with `npx wrangler deploy --dry-run`.
 
-1. Sign in to Cloudflare. A free account is enough.
-2. Go to **Workers & Pages → Create → Pages → Connect to Git**. Authorise GitHub and pick `aryanmayekar999-byte/nhmwebsitedesign`.
-3. Fill in the settings:
+### One-time setup
+
+1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Import a repository**, and pick `aryanmayekar999-byte/nhmwebsitedesign`.
+2. Fill in the settings:
 
    | Setting | Value |
    | --- | --- |
-   | Project name | `woodward-avenue` (this becomes `woodward-avenue.pages.dev`) |
-   | Production branch | `main` |
-   | Framework preset | None |
+   | Project name | `woodward-avenue`. It must match `name` in `wrangler.jsonc` |
    | Build command | *(leave empty)* |
-   | Build output directory | `woodward-avenue/site` |
+   | Deploy command | `npx wrangler deploy` (the default) |
+   | Root directory | `/` (the default) |
 
-4. Click **Save and Deploy**. The site is live at `https://woodward-avenue.pages.dev` within a minute.
-5. Under **Settings → Build → Build watch paths**, set the include path to `woodward-avenue/site/*`, so changes to the NHM site don't redeploy Woodward Avenue.
-
-If the project name is taken, Cloudflare adds a short suffix to the address. Use whatever address it shows.
+3. Deploy. The address is shown on the project's overview page. It's `woodward-avenue.<your-account>.workers.dev`.
+4. Under **Settings → Build → Branch control**, set the production branch to `main`. To go live before this branch is merged, use `claude/dazzling-albattani-ghayyj` for now, then switch back.
+5. Under **Settings → Build → Build watch paths**, include `woodward-avenue/site/*` and `wrangler.jsonc`, so changes to the NHM site don't redeploy Woodward Avenue.
 
 ### After setup
 
-- **Deploys:** every push to `main` that touches `woodward-avenue/site/` redeploys the site. Other branches and pull requests get their own preview address, shown on the pull request.
-- **Before merging:** to put the site live before this branch is merged, set the production branch to `claude/dazzling-albattani-ghayyj` for now, then switch it back to `main`.
-- **Canonical link:** once the address is confirmed, add `<link rel="canonical" href="https://woodward-avenue.pages.dev/">` to `site/index.html`.
-- **Headers:** `site/_headers` sets security headers and caching for images on Cloudflare Pages. Other hosts ignore the file.
-- **Own domain later:** add it under **Custom domains** in the project. The `pages.dev` address keeps working.
+- **Deploys:** every push to the production branch that touches the site redeploys it. Other branches get preview addresses.
+- **Canonical link:** once the address is confirmed, add `<link rel="canonical" href="https://<your address>/">` to `site/index.html`.
+- **Headers:** `site/_headers` sets security headers and caching for images. Cloudflare applies it; it isn't served as a file.
+- **Own domain later:** add it under **Settings → Domains & Routes**. The `workers.dev` address keeps working.
 
 ## Layout
 
