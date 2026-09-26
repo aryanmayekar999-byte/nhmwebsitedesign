@@ -43,9 +43,16 @@ This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves f
 
 | Path | What it is |
 | --- | --- |
-| `site/index.html` | The homepage, responsive from phone to desktop |
+| `site/index.html` | The homepage, responsive from phone to desktop, with featured listings |
+| `site/listings.html` | All listings, with search, type, make and sort filters (kept in the URL) |
+| `site/listing.html?id=…` | One model's profile: photo, specification, India eligibility, what to check |
+| `site/credits.html` | Photo credits and licences |
 | `site/css/styles.css` | All styles; the palette and fonts are CSS variables at the top |
 | `site/js/main.js` | Mobile menu toggle |
+| `site/js/data.js` | Listings data, the rolling 50-year eligibility rule, and the shared card and credit helpers |
+| `site/js/photos.js` | Listing photo credits (author, licence, source) |
+| `site/js/listings.js` | Listings page filters |
+| `site/assets/listings/` | Listing photos from Wikimedia Commons, cropped to 3:2 at 640 and 1200 px (WebP) |
 | `site/assets/logo/` | Wordmark in ivory (`-light`, for dark backgrounds) and charcoal (`-dark`, for light backgrounds) |
 | `site/assets/images/` | Concept renders: storefront, display plaque, stationery |
 | `design/canvas/` | Source of the design canvas (desktop and mobile artboards), kept in step with the site. Its image links only resolve inside the canvas |
@@ -58,7 +65,13 @@ This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves f
 - Deep charcoal `#202527` and warm ivory `#F7F3E9`, alternating by section
 - Muted copper `#B77A46` for rules and detail. Text uses `#C98E5A` on charcoal and `#8A5A30` on ivory so it meets contrast requirements
 - NHM red `#DC010F` appears only as the dot in the logo
-- Fonts from Google Fonts: Marcellus for headings, Josefin Sans for uppercase labels, Instrument Sans for body text
+- Type matches Nihon Heritage Motors: Cormorant Garamond (600) for headings and Inter for text, at NHM's sizes (display 64/68, heading-1 44/50, heading-2 32/38, eyebrow 12/16 at 0.14em). Headings use lining figures so years read cleanly
+
+## Listings
+
+Listings are model profiles, not cars for sale. To add or edit one, change the `WA.listings` array in `site/js/data.js`; eligibility is calculated from `from` and `to` in the visitor's browser, so a model qualifies automatically once it is 50 years old. Each listing needs a `category` (`luxury`, `personal` or `sports`).
+
+Photos are optional. To add one, save 3:2 crops as `site/assets/listings/<id>-640.webp` and `<id>-1200.webp`, and add an entry to `site/js/photos.js` with the author, licence and Commons page. The listing and credits pages show the credit automatically. The licences (CC BY, CC BY-SA, CC0, public domain) require that credit, so keep it whenever a photo changes.
 
 ## Before launch
 
