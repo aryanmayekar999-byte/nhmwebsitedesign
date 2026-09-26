@@ -10,7 +10,7 @@ python3 -m http.server 8000 --directory woodward-avenue/site
 
 ## Hosting
 
-Woodward Avenue is hosted on **Cloudflare**, as a Worker that serves static files, at its free cloud address: **`https://woodward-avenue.<your-account>.workers.dev`**. No domain has to be bought.
+Woodward Avenue is hosted on **Cloudflare**, as a Worker that serves static files, at its free cloud address: **`https://nhmwebsitedesign.<your-account>.workers.dev`**. No domain has to be bought.
 
 This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves from the repo root. GitHub Pages allows only one site per repo, so Woodward Avenue is deployed to Cloudflare instead. Both sites stay in this repo.
 
@@ -23,12 +23,12 @@ This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves f
 
    | Setting | Value |
    | --- | --- |
-   | Project name | `woodward-avenue`. It must match `name` in `wrangler.jsonc` |
+   | Project name | `nhmwebsitedesign` (the current Worker). It must match `name` in `wrangler.jsonc`; rename both together |
    | Build command | *(leave empty)* |
    | Deploy command | `npx wrangler deploy` (the default) |
    | Root directory | `/` (the default) |
 
-3. Deploy. The address is shown on the project's overview page. It's `woodward-avenue.<your-account>.workers.dev`.
+3. Deploy. The address is shown on the project's overview page. It's `nhmwebsitedesign.<your-account>.workers.dev`.
 4. Under **Settings → Build → Branch control**, set the production branch to `main`. To go live before this branch is merged, use `claude/dazzling-albattani-ghayyj` for now, then switch back.
 5. Under **Settings → Build → Build watch paths**, include `woodward-avenue/site/*` and `wrangler.jsonc`, so changes to the NHM site don't redeploy Woodward Avenue.
 
