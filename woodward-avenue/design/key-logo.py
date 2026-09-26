@@ -1,8 +1,8 @@
 # Keys the supplied logo (charcoal/copper/red on black) into transparent PNGs.
-# Run from the repo root: python3 design/key-logo.py  (needs Pillow + numpy)
+# Run from the repo root: python3 woodward-avenue/design/key-logo.py  (needs Pillow + numpy)
 from PIL import Image
 import numpy as np
-im=np.asarray(Image.open('assets/logo/woodward-logo-source.jpg').convert('RGB')).astype(float)
+im=np.asarray(Image.open('woodward-avenue/design/woodward-logo-source.jpg').convert('RGB')).astype(float)
 H,W,_=im.shape
 mx=im.max(2); mn=im.min(2); sat=mx-mn
 # sample colours
@@ -28,5 +28,5 @@ def out(name,colors):
     img=Image.fromarray(rgba,'RGBA')
     bb=img.getbbox(); print(name,bb)
     img=img.crop((bb[0]-20,bb[1]-20,bb[2]+20,bb[3]+20)); img.save(name,optimize=True)
-out('assets/logo/woodward-logo-dark.png',[(0x20,0x25,0x27),(0xB7,0x7A,0x46),(0xDC,0x01,0x0F)])
-out('assets/logo/woodward-logo-light.png',[(0xF7,0xF3,0xE9),(0xB7,0x7A,0x46),(0xDC,0x01,0x0F)])
+out('woodward-avenue/site/assets/logo/woodward-logo-dark.png',[(0x20,0x25,0x27),(0xB7,0x7A,0x46),(0xDC,0x01,0x0F)])
+out('woodward-avenue/site/assets/logo/woodward-logo-light.png',[(0xF7,0xF3,0xE9),(0xB7,0x7A,0x46),(0xDC,0x01,0x0F)])
