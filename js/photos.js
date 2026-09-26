@@ -103,13 +103,22 @@ NHM.photos = {
     "page": "https://commons.wikimedia.org/wiki/File:Mazda_SAVANNA_RX-7_GT_(SA22C)_front.jpg",
     "title": "Mazda SAVANNA RX-7 GT (SA22C) front.jpg"
   },
-  "nissan-skyline-gt-r-r32": {
-    "src": "assets/listings/nissan-skyline-gt-r-r32",
-    "alt": "A white Nissan Skyline GT-R (BNR32) on display at Osaka Auto Messe.",
-    "author": "Tokumeigakarinoaoshima",
+  "nissan-skyline-gts-r-hr31": {
+    "src": "assets/listings/nissan-skyline-gts-r-hr31",
+    "alt": "A dark blue Nissan Skyline 2000 GTS-R coupe (R31) on display.",
+    "author": "Tennen-Gas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Nissan_Skyline_R31_2000_GTS-R_002.jpg",
+    "title": "Nissan Skyline R31 2000 GTS-R 002.jpg"
+  },
+  "nissan-skyline-rs-dr30": {
+    "src": "assets/listings/nissan-skyline-rs-dr30",
+    "alt": "A two-tone silver Nissan Skyline 2000 RS-X hardtop (DR30) at a car meet in Japan.",
+    "author": "先従隗始",
     "license": "CC0",
     "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-    "page": "https://commons.wikimedia.org/wiki/File:Osaka_Auto_Messe_2014_(88)_GT-R_Magagine_-_Nissan_SKYLINE_GT-R_(BNR32).JPG",
-    "title": "Osaka Auto Messe 2014 (88) GT-R Magagine - Nissan SKYLINE GT-R (BNR32).JPG"
+    "page": "https://commons.wikimedia.org/wiki/File:Nissan_E-DR30_Skyline_Hardtop_2000_RS%EF%BD%A5X_(23101510332).jpg",
+    "title": "Nissan E-DR30 Skyline Hardtop 2000 RS･X (23101510332).jpg"
   }
 };

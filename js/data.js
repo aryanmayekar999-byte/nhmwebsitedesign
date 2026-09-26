@@ -153,15 +153,27 @@ NHM.listings = [
     ]
   },
   {
-    id: 'nissan-skyline-gt-r-r32',
-    make: 'Nissan', model: 'Skyline GT-R', chassis: 'BNR32',
-    from: 1989, to: 1994, body: 'Coupe',
-    engine: '2.6-litre RB26DETT twin-turbo straight-six',
-    summary: 'The car that brought the GT-R name back and dominated touring-car racing. Not eligible for India until 2039.',
+    id: 'nissan-skyline-rs-dr30',
+    make: 'Nissan', model: 'Skyline 2000RS', chassis: 'DR30',
+    from: 1981, to: 1985, body: 'Sedan and coupe',
+    engine: '2.0-litre FJ20 straight-four, twin cam (Turbo RS: FJ20ET)',
+    summary: "The racing Skyline that never wore a GT-R badge, because Nissan kept that name for six-cylinder cars. Later cars are called 'iron mask' for their grille-less nose. The first become eligible for India in 2031.",
     checks: [
-      'Listed to show how eligibility rolls forward; plan well ahead.',
-      'Check for tuning history and a genuine RB26DETT.',
-      'Inspect the rear arches and sills for rust.'
+      'Confirm a genuine FJ20 engine; many have been swapped for RB-series sixes.',
+      "Check the chassis plate reads DR30; lesser R30s are often dressed up as RS models, or given an 'iron mask' nose.",
+      'Inspect the sills, rear arches and floors for rust.'
+    ]
+  },
+  {
+    id: 'nissan-skyline-gts-r-hr31',
+    make: 'Nissan', model: 'Skyline GTS / GTS-R', chassis: 'HR31',
+    from: 1985, to: 1989, body: 'Sedan and coupe',
+    engine: '2.0-litre RB20DET turbo straight-six (GTS-R: RB20DET-R)',
+    summary: 'The last Skyline before the GT-R returned. About 800 GTS-R coupes were built in 1987 to homologate the car for Group A racing. The first HR31s become eligible for India in 2035.',
+    checks: [
+      'Verify a GTS-R by its chassis and engine numbers; replica body kits are common.',
+      'Check the HICAS four-wheel steering, which is often faulty or removed.',
+      'Inspect the sills, rear arches and the base of the rear window for rust.'
     ]
   }
 ];
