@@ -3,15 +3,15 @@
 
 window.NHM = window.NHM || {};
 
-/* India treats a car as vintage once it is 50 years old, on a rolling basis. */
+/* Model year is only an initial screen; legal eligibility is vehicle-specific. */
 NHM.VINTAGE_AGE = 50;
 
 NHM.eligibility = function (from, to, year) {
   year = year || new Date().getFullYear();
   var cutoff = year - NHM.VINTAGE_AGE;
-  if (to <= cutoff) return { status: 'now', label: 'Eligible now', year: from + NHM.VINTAGE_AGE };
-  if (from <= cutoff) return { status: 'partial', label: 'Eligible now (' + from + '–' + cutoff + ' cars)', year: from + NHM.VINTAGE_AGE };
-  return { status: 'upcoming', label: 'From ' + (from + NHM.VINTAGE_AGE), year: from + NHM.VINTAGE_AGE };
+  if (to <= cutoff) return { status: 'now', label: 'Potentially age-eligible', year: from + NHM.VINTAGE_AGE };
+  if (from <= cutoff) return { status: 'partial', label: 'Potentially age-eligible (' + from + '–' + cutoff + ' models)', year: from + NHM.VINTAGE_AGE };
+  return { status: 'upcoming', label: 'Earliest model-year screen: ' + (from + NHM.VINTAGE_AGE), year: from + NHM.VINTAGE_AGE };
 };
 
 NHM.years = function (from, to) {
@@ -101,7 +101,7 @@ NHM.listings = [
     checks: [
       'Confirm the trim level; many cars have been dressed up as an MR.',
       'Check the sills, wheel arches and rear valance for rust.',
-      'Later cars (after 1976) are not yet eligible for India.'
+      "Later models are unlikely to meet the 50-year screen in 2026; verify each car's first registration."
     ]
   },
   {
@@ -113,7 +113,7 @@ NHM.listings = [
     checks: [
       'The chassis code confirms a genuine GT (TA22); lesser models are often converted.',
       'Check the rear quarters, floors and windscreen surround for rust.',
-      'Only cars built in 1976 or earlier are eligible in 2026.'
+      'A 1976 or older model needs a first-registration and condition check; model year alone does not establish eligibility.'
     ]
   },
   {
@@ -149,7 +149,7 @@ NHM.listings = [
     checks: [
       'Ask for a compression test on each rotor.',
       'Check the rear hatch, arches and floors for rust.',
-      'Watch the calendar: each model year becomes eligible 50 years after it was built.'
+      'Model year is only a screen; first registration and originality must be checked for each car.'
     ]
   },
   {

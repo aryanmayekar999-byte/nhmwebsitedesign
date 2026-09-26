@@ -25,85 +25,84 @@
     input.removeAttribute('aria-invalid');
     var from = y + NHM.VINTAGE_AGE;
     if (from <= now) {
-      big.textContent = 'Eligible now';
-      note.textContent = 'A car built in ' + y + ' is ' + (now - y) + ' years old in ' + now + ', so it can be imported as vintage.';
+      big.textContent = 'Potentially age-eligible';
+      note.textContent = 'A ' + y + ' model may meet the age screen in ' + now + '. Confirm the specific vehicle’s first-registration date, originality, documents and current import and registration rules with a qualified broker before buying.';
     } else {
-      big.textContent = 'Eligible from ' + from;
-      note.textContent = 'A car built in ' + y + ' turns 50 in ' + from + '. That is ' + (from - now) + (from - now === 1 ? ' year' : ' years') + ' away.';
+      big.textContent = 'Earliest model-year screen: ' + from;
+      note.textContent = 'This is an estimate from model year only. The specific vehicle’s first-registration date and other conditions determine whether it qualifies.';
     }
     eResult.append(big, note);
   });
 
-  /* Landed cost ---------------------------------------------------------- */
+  /* Cash planning worksheet -------------------------------------------- */
   var cForm = document.getElementById('calc');
   var cResult = document.getElementById('calc-result');
   var cError = document.getElementById('calc-error');
-  var KEY = 'nhm-calc';
-  var names = ['price', 'fees', 'inland', 'freight', 'rate', 'duty', 'gst', 'clear', 'reg'];
-
+  var KEY = 'nhm-calc-v2';
+  var names = ['price', 'fees', 'inland', 'freight', 'insurance', 'rate', 'tax', 'clear', 'reg', 'concierge', 'buffer'];
   var inr = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
   var jpy = new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY', maximumFractionDigits: 0 });
 
+  try { localStorage.removeItem('nhm-calc'); } catch (err) { /* old worksheet data unavailable */ }
   try {
     var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
-    names.forEach(function (n) { if (saved[n] != null) cForm[n].value = saved[n]; });
+    names.forEach(function (n) { if (saved[n] != null) cForm.elements[n].value = saved[n]; });
   } catch (err) { /* storage unavailable: start empty */ }
-
-  function num(n) { var v = parseFloat(cForm[n].value); return isNaN(v) ? 0 : v; }
 
   cForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    var missing = ['price', 'rate', 'duty', 'gst'].filter(function (n) {
-      var v = parseFloat(cForm[n].value);
-      return isNaN(v) || v < 0 || (n !== 'duty' && n !== 'gst' && v === 0);
+    names.forEach(function (n) { cForm.elements[n].removeAttribute('aria-invalid'); });
+    var bad = names.filter(function (n) {
+      var raw = cForm.elements[n].value.trim();
+      var value = Number(raw);
+      return (['price', 'rate', 'tax'].includes(n) && raw === '') || (raw !== '' && (!Number.isFinite(value) || value < 0 || (n === 'buffer' && value > 100))) || ((n === 'price' || n === 'rate') && value <= 0);
     });
-    names.forEach(function (n) { cForm[n].removeAttribute('aria-invalid'); });
-    if (missing.length) {
-      missing.forEach(function (n) { cForm[n].setAttribute('aria-invalid', 'true'); });
-      cError.textContent = 'Please fill in the car price, exchange rate, customs duty and IGST.';
+    if (bad.length) {
+      bad.forEach(function (n) { cForm.elements[n].setAttribute('aria-invalid', 'true'); });
+      cError.textContent = 'Enter a positive car price and exchange rate, a broker tax quote (zero only if confirmed), and non-negative costs. Buffer must be 0–100%.';
       cResult.hidden = true;
-      cForm[missing[0]].focus();
+      cForm.elements[bad[0]].focus();
       return;
     }
+    var values = {};
+    names.forEach(function (n) { values[n] = Number(cForm.elements[n].value || 0); });
+    var plan;
+    try { plan = NHM.costPlan(values); }
+    catch (err) { cError.textContent = 'Check the entered amounts.'; cResult.hidden = true; return; }
     cError.textContent = '';
-
-    var yen = num('price') + num('fees') + num('inland') + num('freight');
-    var cif = yen * num('rate');
-    var duty = cif * num('duty') / 100;
-    var gst = (cif + duty) * num('gst') / 100;
-    var total = cif + duty + gst + num('clear') + num('reg');
-
     var rows = [
-      ['Costs in Japan', jpy.format(yen)],
-      ['CIF value in rupees', inr.format(cif)],
-      ['Customs duty (' + num('duty') + '%)', inr.format(duty)],
-      ['IGST and cess (' + num('gst') + '%)', inr.format(gst)],
-      ['Port, clearance and broker', inr.format(num('clear'))],
-      ['Registration and delivery', inr.format(num('reg'))]
+      ['Purchase, fees and transport (JPY)', jpy.format(plan.foreign)],
+      ['Converted purchase and transport', inr.format(plan.converted)],
+      ['Broker-quoted customs duties and taxes', inr.format(values.tax)],
+      ['Port and clearance', inr.format(values.clear)],
+      ['Registration and delivery', inr.format(values.reg)],
+      ['Concierge fee, if quoted', inr.format(values.concierge)],
+      ['Subtotal before buffer', inr.format(plan.subtotal)],
+      ['Planning buffer (' + values.buffer + '%)', inr.format(plan.reserve)],
+      ['Planning total', inr.format(plan.total)]
     ];
     var tbody = document.querySelector('#calc-breakdown tbody');
     tbody.replaceChildren();
-    rows.concat([['Total', inr.format(total)]]).forEach(function (r, i, all) {
+    rows.forEach(function (r, i) {
       var tr = document.createElement('tr');
-      if (i === all.length - 1) tr.className = 'total';
+      if (i === rows.length - 1) tr.className = 'total';
       var th = document.createElement('th'); th.scope = 'row'; th.textContent = r[0];
       var td = document.createElement('td'); td.textContent = r[1];
       tr.append(th, td); tbody.appendChild(tr);
     });
-    document.getElementById('calc-total').textContent = inr.format(total);
+    document.getElementById('calc-total').textContent = inr.format(plan.total);
     cResult.hidden = false;
-
     try {
-      var data = {};
-      names.forEach(function (n) { data[n] = cForm[n].value; });
-      localStorage.setItem(KEY, JSON.stringify(data));
-    } catch (err) { /* storage unavailable: nothing to remember */ }
+      var saved = {};
+      names.forEach(function (n) { saved[n] = cForm.elements[n].value; });
+      localStorage.setItem(KEY, JSON.stringify(saved));
+    } catch (err) { /* storage unavailable */ }
   });
 
   cForm.addEventListener('reset', function () {
     cResult.hidden = true;
     cError.textContent = '';
-    names.forEach(function (n) { cForm[n].removeAttribute('aria-invalid'); });
+    names.forEach(function (n) { cForm.elements[n].removeAttribute('aria-invalid'); });
     try { localStorage.removeItem(KEY); } catch (err) { /* ignore */ }
   });
 })();
