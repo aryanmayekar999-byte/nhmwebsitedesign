@@ -34,7 +34,7 @@ Netlify works the same way: set base directory `woodward-avenue/site`, leave the
 | `site/js/main.js` | Mobile menu toggle |
 | `site/assets/logo/` | Wordmark in ivory (`-light`, for dark backgrounds) and charcoal (`-dark`, for light backgrounds) |
 | `site/assets/images/` | Concept renders: storefront, display plaque, stationery |
-| `design/canvas/` | Source of the first design canvas (desktop and mobile artboards). Its image links only resolve inside the canvas |
+| `design/canvas/` | Source of the design canvas (desktop and mobile artboards), kept in step with the site. Its image links only resolve inside the canvas |
 | `design/woodward-logo-source.jpg` | The supplied logo image |
 | `design/key-logo.py` | Rebuilds the transparent logo PNGs from the source image (`python3 woodward-avenue/design/key-logo.py`, needs Pillow and numpy) |
 | `docs/concept-brief.md` | The identity brief |
