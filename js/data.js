@@ -62,8 +62,6 @@ NHM.listings = [
     from: 1969, to: 1973, body: 'Coupe',
     engine: '2.4-litre L24 straight-six (Japanese-market Fairlady Z: 2.0-litre L20)',
     summary: 'The affordable six-cylinder sports car that took on Europe. Japanese-market cars are right-hand drive, as India drives.',
-    image: 'assets/images/datsun-240z-800.webp',
-    imageAlt: 'Concept render of an orange Datsun 240Z on a wet, tree-lined street at sunset.',
     checks: [
       'Rust is the enemy: floors, sills, battery tray, rear hatch and the frame rails.',
       'Some left-hand-drive export cars have been converted to right-hand drive; check which you are buying.',
@@ -185,9 +183,13 @@ NHM.card = function (car) {
   var li = el('li', 'card');
   var a = el('a', 'card__link');
   a.href = 'listing.html?id=' + encodeURIComponent(car.id);
-  if (car.image) {
+  var photo = NHM.photos && NHM.photos[car.id];
+  if (photo) {
     var img = el('img', 'card__img');
-    img.src = car.image; img.alt = ''; img.loading = 'lazy'; img.width = 800; img.height = 554;
+    img.src = photo.src + '-640.webp';
+    img.srcset = photo.src + '-640.webp 640w, ' + photo.src + '-1200.webp 1200w';
+    img.sizes = '(min-width: 1200px) 280px, (min-width: 640px) 45vw, 100vw';
+    img.alt = ''; img.loading = 'lazy'; img.width = 640; img.height = 427;
     a.appendChild(img);
   } else {
     a.appendChild(el('span', 'card__plate', car.chassis.split(' / ')[0]));
@@ -200,4 +202,21 @@ NHM.card = function (car) {
   a.appendChild(body);
   li.appendChild(a);
   return li;
+};
+
+/* Photo credit as a caption: "Photo: Author, licence (linked), via Wikimedia Commons". */
+NHM.credit = function (photo) {
+  var cap = document.createElement('figcaption');
+  cap.className = 'caption';
+  var link = function (href, text) {
+    var a = document.createElement('a');
+    a.href = href; a.textContent = text; a.rel = 'noopener'; a.target = '_blank';
+    return a;
+  };
+  cap.append('Photo: ' + photo.author + ', ');
+  cap.append(photo.licenseUrl ? link(photo.licenseUrl, photo.license) : photo.license);
+  cap.append(', via ');
+  cap.append(link(photo.page, 'Wikimedia Commons'));
+  if (photo.note) cap.append('. ' + photo.note);
+  return cap;
 };

@@ -96,6 +96,7 @@
           <li><a href="listings.html">Listings</a></li>
           <li><a href="auctions.html">Auctions</a></li>
           <li><a href="guide.html">Buying guide</a></li>
+          <li><a href="credits.html">Photo credits</a></li>
           <li><a href="styleguide.html">Style guide</a></li>
         </ul>
       </nav>
@@ -104,6 +105,7 @@
   </footer>
 
   <script src="js/data.js"></script>
+  <script src="js/photos.js"></script>
   <script>
     (function () {
       var car = NHM.findListing(new URLSearchParams(location.search).get('id'));
@@ -122,13 +124,15 @@
       $('page-title').textContent = car.model;
       $('summary').textContent = car.summary;
 
-      if (car.image) {
+      var photo = NHM.photos && NHM.photos[car.id];
+      if (photo) {
         var fig = document.createElement('figure');
         var img = document.createElement('img');
-        img.src = car.image; img.alt = car.imageAlt || ''; img.width = 800; img.height = 554;
-        var cap = document.createElement('figcaption');
-        cap.className = 'caption'; cap.textContent = 'Concept render.';
-        fig.append(img, cap);
+        img.src = photo.src + '-1200.webp';
+        img.srcset = photo.src + '-640.webp 640w, ' + photo.src + '-1200.webp 1200w';
+        img.sizes = '(min-width: 960px) 58vw, 100vw';
+        img.alt = photo.alt; img.width = 1200; img.height = 800;
+        fig.append(img, NHM.credit(photo));
         $('media').appendChild(fig);
       } else {
         var plate = document.createElement('span');
