@@ -8,22 +8,38 @@ A static site with no build step. Everything that goes live is in `site/`. Open 
 python3 -m http.server 8000 --directory woodward-avenue/site
 ```
 
-## Hosting on its own domain
+## Hosting
 
-This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves from the repo root. GitHub Pages allows only one site and one custom domain per repo, so Woodward Avenue is hosted separately, from this folder, on Cloudflare Pages (free). Both sites stay in this repo.
+Woodward Avenue is hosted on **Cloudflare Pages**, on its free cloud address: **`https://woodward-avenue.pages.dev`**. No domain has to be bought.
 
-1. **Create the project.** In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git**, and pick `aryanmayekar999-byte/nhmwebsitedesign`.
-2. **Configure the build.**
-   - Production branch: `main`
-   - Framework preset: None
-   - Build command: leave empty
-   - Build output directory: `woodward-avenue/site`
+This repo also holds the Nihon Heritage Motors site, which GitHub Pages serves from the repo root. GitHub Pages allows only one site per repo, so Woodward Avenue is deployed from this folder by Cloudflare instead. Both sites stay in this repo.
 
-   Under **Build watch paths**, include only `woodward-avenue/site/*`, so NHM changes don't redeploy Woodward Avenue. The site is then live at `https://<project-name>.pages.dev`.
-3. **Add the domain.** Register a domain, for example `woodwardavenue.in` (check it's available). In the project, open **Custom domains → Set up a custom domain**. If the domain's DNS is on Cloudflare, the record is added for you. Otherwise, add the CNAME record Cloudflare shows at your registrar. HTTPS is issued automatically.
-4. **Update the site.** Once the domain is live, add `<link rel="canonical" href="https://<your-domain>/">` to `site/index.html`.
+### One-time setup (about 5 minutes)
 
-Netlify works the same way: set base directory `woodward-avenue/site`, leave the build command empty, and set the publish directory to `.`.
+1. Sign in to Cloudflare. A free account is enough.
+2. Go to **Workers & Pages → Create → Pages → Connect to Git**. Authorise GitHub and pick `aryanmayekar999-byte/nhmwebsitedesign`.
+3. Fill in the settings:
+
+   | Setting | Value |
+   | --- | --- |
+   | Project name | `woodward-avenue` (this becomes `woodward-avenue.pages.dev`) |
+   | Production branch | `main` |
+   | Framework preset | None |
+   | Build command | *(leave empty)* |
+   | Build output directory | `woodward-avenue/site` |
+
+4. Click **Save and Deploy**. The site is live at `https://woodward-avenue.pages.dev` within a minute.
+5. Under **Settings → Build → Build watch paths**, set the include path to `woodward-avenue/site/*`, so changes to the NHM site don't redeploy Woodward Avenue.
+
+If the project name is taken, Cloudflare adds a short suffix to the address. Use whatever address it shows.
+
+### After setup
+
+- **Deploys:** every push to `main` that touches `woodward-avenue/site/` redeploys the site. Other branches and pull requests get their own preview address, shown on the pull request.
+- **Before merging:** to put the site live before this branch is merged, set the production branch to `claude/dazzling-albattani-ghayyj` for now, then switch it back to `main`.
+- **Canonical link:** once the address is confirmed, add `<link rel="canonical" href="https://woodward-avenue.pages.dev/">` to `site/index.html`.
+- **Headers:** `site/_headers` sets security headers and caching for images on Cloudflare Pages. Other hosts ignore the file.
+- **Own domain later:** add it under **Custom domains** in the project. The `pages.dev` address keeps working.
 
 ## Layout
 
@@ -50,7 +66,7 @@ Netlify works the same way: set base directory `woodward-avenue/site`, leave the
 
 - **Enquiries:** the contact section says Woodward Avenue isn't taking clients yet and has no form, as on the NHM site. Add a working channel (an email link or a form service) once you're ready. Never show a form that doesn't send.
 - **Launch status:** remove the "launching" notes when you open.
-- **Domain:** set up hosting and the domain as described above. The NHM links point at `https://aryanmayekar999-byte.github.io/nhmwebsitedesign/`. Update them if NHM moves to its own domain.
+- **Hosting:** complete the Cloudflare setup above. The NHM links point at `https://aryanmayekar999-byte.github.io/nhmwebsitedesign/`. Update them if NHM moves to its own domain.
 - **Import rule:** the copy assumes India's rolling 50-year vintage rule, as the NHM site does. Update both if the rule changes.
 - **Photography:** the storefront, plaque and stationery images are concept renders. Replace them with real photography before launch.
 - **Logo:** redraw the wordmark as a vector master, as the brief asks. The PNGs are keyed from a generated image.
