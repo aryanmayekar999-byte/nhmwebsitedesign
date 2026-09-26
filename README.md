@@ -17,7 +17,8 @@ Site for **Nihon Heritage Motors**, a concierge that helps collectors in India f
 | `js/listings.js`, `js/guide.js` | Listings filters; guide tools |
 | `css/tokens.css`, `css/site.css` | Design tokens and site styles |
 | `design-system/` | Token source and brand book from the design system |
-| `assets/` | Emblem, favicon and concept renders |
+| `assets/` | Emblem, favicon, brand concept renders, and listing photos (`assets/listings/`) |
+| `js/photos.js`, `credits.html` | Listing photo credits (author, licence, source) and the Photo credits page |
 
 ## Business model
 
@@ -53,4 +54,4 @@ To publish on GitHub Pages, set **Settings → Pages → Source** to this branch
 - **Enquiries:** the contact section says NHM isn't taking clients yet and has no form. Add a working channel (an email link, or a form service such as Formspree or your CRM) once you're ready to receive enquiries. Never show a form that doesn't send.
 - **Launch status:** pages say NHM is launching and partners aren't in place. Remove those notes when you open.
 - **Import eligibility:** the site assumes India's vintage rule is a rolling 50-year cutoff. Listing eligibility is recalculated from the current year in the browser. Update the copy and script if the rule changes.
-- **Photography:** all images are concept renders, not real premises or cars.
+- **Photography:** the showroom, grille badge and stationery images are concept renders. Listing photos are real cars from Wikimedia Commons under CC0, CC BY or CC BY-SA. Keep their credits in `js/photos.js` whenever you change them, because the licences require attribution.
