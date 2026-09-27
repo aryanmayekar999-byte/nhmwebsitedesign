@@ -6,6 +6,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nhmwebsitedesign",
   "compatibility_date": "2026-09-01",
+  "previews": {},
   "assets": {
     "directory": "./woodward-avenue/site"
   }

@@ -3,7 +3,7 @@
 
 window.WA = window.WA || {};
 
-/* India treats a car as vintage once it is 50 years old, on a rolling basis. */
+/* Model year is only an initial screen; legal eligibility is vehicle-specific. */
 WA.VINTAGE_AGE = 50;
 
 /* Parent site. */
@@ -12,9 +12,9 @@ WA.NHM_URL = 'https://aryanmayekar999-byte.github.io/nhmwebsitedesign/';
 WA.eligibility = function (from, to, year) {
   year = year || new Date().getFullYear();
   var cutoff = year - WA.VINTAGE_AGE;
-  if (to <= cutoff) return { status: 'now', label: 'Eligible now', year: from + WA.VINTAGE_AGE };
-  if (from <= cutoff) return { status: 'partial', label: 'Eligible now (' + from + '–' + cutoff + ' cars)', year: from + WA.VINTAGE_AGE };
-  return { status: 'upcoming', label: 'From ' + (from + WA.VINTAGE_AGE), year: from + WA.VINTAGE_AGE };
+  if (to <= cutoff) return { status: 'now', label: 'Potentially age-eligible', year: from + WA.VINTAGE_AGE };
+  if (from <= cutoff) return { status: 'partial', label: 'Potentially age-eligible (' + from + '–' + cutoff + ' models)', year: from + WA.VINTAGE_AGE };
+  return { status: 'upcoming', label: 'Earliest model-year screen: ' + (from + WA.VINTAGE_AGE), year: from + WA.VINTAGE_AGE };
 };
 
 WA.years = function (from, to) {
@@ -79,7 +79,7 @@ WA.listings = [
     checks: [
       'Work the power top through several cycles and check the hydraulic lines.',
       "Some 1976 cars claim to be special 'last convertible' editions; check the paperwork.",
-      'Only cars built in 1976 or earlier are eligible in 2026.'
+      'A 1976 or older model needs a first-registration and condition check; model year alone does not establish eligibility.'
     ]
   },
   {

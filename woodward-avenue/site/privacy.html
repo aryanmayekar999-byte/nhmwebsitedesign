@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Photo credits — Woodward Avenue by NHM</title>
-<meta name="description" content="Credits and licences for the car photographs used on the Woodward Avenue by NHM website.">
+<title>Privacy policy — Woodward Avenue by NHM</title>
+<meta name="description" content="Privacy policy for the Woodward Avenue by NHM website.">
 <meta name="theme-color" content="#202527">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,22 +30,7 @@
   </nav>
 </header>
 
-<main id="main" class="page">
-  <section class="page-intro" aria-labelledby="page-title">
-    <p class="eyebrow">Credits</p>
-    <h1 id="page-title">Photo credits</h1>
-    <p class="lead">The car photographs on this site come from Wikimedia Commons and are used under the licences shown. They show examples of each model, not cars for sale. The storefront, plaque and stationery images are concept renders made for Woodward Avenue by NHM.</p>
-  </section>
-  <section class="page-section" aria-label="Photographs">
-    <div class="table-wrap">
-      <table class="data-table">
-        <thead><tr><th scope="col">Listing</th><th scope="col">Photograph</th><th scope="col">Author</th><th scope="col">Licence</th></tr></thead>
-        <tbody id="credits"></tbody>
-      </table>
-    </div>
-    <p class="caption" style="margin-top: 16px">Photos have been cropped to a 3:2 frame and resized. No other changes were made.</p>
-  </section>
-</main>
+<main id="main" class="page"><section class="page-intro"><p class="eyebrow">Site information</p><h1 id="page-title">Privacy policy</h1><p class="lead">This policy describes how Woodward Avenue by NHM handles information when you use this informational website. Last updated 26 September 2026.</p></section><section class="page-section"><h2 class="section-title">Who to contact</h2><p>Woodward Avenue by NHM is the name used for this website. For privacy questions or requests, email <a href="mailto:aryanmayekar999@gmail.com">aryanmayekar999@gmail.com</a>. This is a preview site; the business identity for any future paid service will be provided before an engagement begins.</p></section><section class="page-section"><h2 class="section-title">Information you provide</h2><p>There is no account, checkout or enquiry form on this site. If you email us, we receive your address and the information you include. We use it to respond to your message and handle any related request. Please do not email financial, identity or vehicle documents unless we have agreed a secure way to receive them.</p></section><section class="page-section"><h2 class="section-title">Hosting and external services</h2><p>Our hosting providers may process IP addresses, request details and security logs to deliver and protect the site. The pages also load fonts from Google Fonts, whose servers may receive your IP address and browser request. On pages with the currency guide, your browser requests daily reference rates from Exchange Rate API, which may receive your IP address and browser request. The rate response is cached in your browser for up to 24 hours; amounts you type are calculated locally and are not sent to the rate provider. Links to other websites are governed by those sites’ own policies. We do not currently run advertising trackers or a mailing list.</p></section><section class="page-section"><h2 class="section-title">Retention and requests</h2><p>We keep email correspondence only as long as reasonably needed to answer and manage it, or to meet applicable obligations. Hosting logs follow the provider’s retention settings. To ask about, correct or delete information you sent by email, contact <a href="mailto:aryanmayekar999@gmail.com">aryanmayekar999@gmail.com</a>. We will respond under applicable law. If our collection or providers change, we will update this policy.</p></section></main>
 
 <footer class="site-footer">
   <div class="site-footer__top">
@@ -81,30 +66,6 @@
   </div>
 </footer>
 
-<script src="js/data.js"></script>
-<script src="js/photos.js"></script>
-<script>
-  (function () {
-    var body = document.getElementById('credits');
-    var link = function (href, text) {
-      var a = document.createElement('a');
-      a.href = href; a.textContent = text; a.rel = 'noopener'; a.target = '_blank';
-      return a;
-    };
-    WA.listings.forEach(function (car) {
-      var p = WA.photos && WA.photos[car.id];
-      if (!p) return;
-      var tr = document.createElement('tr');
-      var td = function (node) { var d = document.createElement('td'); d.append(node); tr.appendChild(d); };
-      var l = document.createElement('a'); l.href = 'listing.html?id=' + encodeURIComponent(car.id); l.textContent = car.make + ' ' + car.model;
-      td(l);
-      td(link(p.page, p.title));
-      td(p.author);
-      td(p.licenseUrl ? link(p.licenseUrl, p.license) : p.license);
-      body.appendChild(tr);
-    });
-  })();
-</script>
-<script src="js/main.js" defer></script>
+
 </body>
 </html>
