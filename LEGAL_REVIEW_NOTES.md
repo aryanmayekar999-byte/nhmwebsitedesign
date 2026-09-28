@@ -18,6 +18,12 @@
 
 1. Confirm the actual legal operator, business address and governing jurisdiction. Only `aryanmayekar999@gmail.com` was supplied, so the site policies do not invent an entity or address.
 2. Have an Indian customs broker and transport-law adviser verify any vehicle-specific import, tax, left-hand-drive, registration and permitted-use claims before a client relies on them. Model-year labels are only screening estimates.
-3. Confirm the real concierge scope, partners, fees, refund policy, contracts and complaint process before accepting clients. The terms are website-use terms, not a service agreement.
-4. Recheck every Wikimedia Commons photo attribution and licence against the current source file, including any crop or resize conditions. The existing photo-credit pages remain in place.
-5. Confirm the hosting providers' actual log retention and any future analytics, forms or marketing tools, then revise the privacy notices before enabling them.
+3. Before buying and reselling used cars already in India, confirm with a transport-law adviser and a tax adviser:
+   - whether NHM needs an authorisation as a dealer in registered pre-owned vehicles under the Central Motor Vehicles Rules (introduced in 2022), and what records and forms that brings with it;
+   - the GST treatment of used-car sales and of reconditioning and documentation services;
+   - how to verify that each car was lawfully imported and registered (bill of entry, proof of customs duty paid, registration history, no pending dues or theft reports) before buying it, and what to do when records are incomplete;
+   - that no car is bought for resale if transfer conditions attach to it, for example a car imported under the 2025 vintage-import policy for personal use;
+   - a written sale agreement and condition report for every sale, and service terms for documentation, reconditioning and re-registration work.
+4. Confirm the real concierge scope, partners, fees, refund policy, contracts and complaint process before accepting clients. The terms are website-use terms, not a service agreement.
+5. Recheck every Wikimedia Commons photo attribution and licence against the current source file, including any crop or resize conditions. The existing photo-credit pages remain in place.
+6. Confirm the hosting providers' actual log retention and any future analytics, forms or marketing tools, then revise the privacy notices before enabling them.
