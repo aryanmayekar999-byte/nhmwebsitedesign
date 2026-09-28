@@ -414,3 +414,19 @@ input, select, textarea, button { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Desktop uses the available width while retaining readable text columns. */
+@media (min-width: 901px) {
+  :root { --gutter: clamp(28px, 3vw, 64px); --section-y: 88px; }
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 620px; }
+  .hero__text { padding-left: var(--gutter); padding-right: 40px; }
+  .provenance { grid-template-columns: 1fr 1fr; }
+  .service { grid-template-columns: minmax(260px, 30%) minmax(0, 1fr); gap: 40px; }
+  .service__body { max-width: 760px; }
+  .cards { grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); }
+  .featured .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .section-head__aside { max-width: 600px; }
+}
+@media (min-width: 901px) and (max-width: 1199px) {
+  .featured .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
