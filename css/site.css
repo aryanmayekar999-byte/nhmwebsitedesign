@@ -507,3 +507,23 @@ a { color: var(--NHMred); text-underline-offset: 3px; }
 .chips li { font: 500 12px/16px var(--font-inter); padding: var(--space-1) var(--space-2); border: 1px solid var(--border); border-radius: var(--radius-sm); }
 .jump { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); list-style: none; padding: 0; }
 .jump a { color: var(--ink); font: 500 14px/20px var(--font-inter); }
+
+/* Responsive navigation and a wider desktop reading layout. */
+.menu-toggle { display: none; align-items: center; gap: 8px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font: 500 14px/20px var(--font-inter); cursor: pointer; }
+.menu-toggle span:first-child { font-size: 24px; line-height: 1; }
+@media (min-width: 960px) {
+  .container { max-width: 1680px; padding-left: clamp(28px, 3vw, 56px); padding-right: clamp(28px, 3vw, 56px); }
+  .cards { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px; }
+  .hero .container, .story, .visit { gap: 48px; }
+  .guide-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 40px; }
+  .guide-step > .body { max-width: 65em; }
+}
+@media (max-width: 767px) {
+  .site-header .container { position: relative; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .menu-toggle { display: inline-flex; }
+  .nav { width: 100%; }
+  .nav ul { flex-direction: column; gap: 0; }
+  .nav a { display: block; min-height: 48px; padding: 14px 0; border-bottom: 1px solid var(--Hairline); }
+  .js-menu .nav { display: none; }
+  .js-menu .nav.is-open { display: block; }
+}
