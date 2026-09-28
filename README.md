@@ -37,7 +37,7 @@ For the business itself (what NHM is, its services and the rules it works within
 
 ### Business model
 
-NHM is planning a concierge service, not a car dealership. A future client would buy a car in their own name, while NHM would coordinate inspection, shipping, customs and a registration application. The current website is informational and does not accept clients or payments. Vehicle-specific eligibility and business terms need confirmation before launch.
+NHM plans to start with Japanese classics already registered in India: sourcing them, checking their papers, reconditioning and reselling them, and documenting, servicing and re-registering cars for their owners. For cars still in Japan it plans a concierge service: the client buys the car in their own name, and NHM coordinates inspection, shipping, customs and a registration application. Woodward Avenue does the same for American cars. The current website is informational and does not accept clients or payments. Vehicle-specific eligibility and business terms need confirmation before launch.
 
 ### Content to keep current
 
