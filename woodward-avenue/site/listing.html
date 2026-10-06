@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Listing — Woodward Avenue by NHM</title>
+<title>Listing | Woodward Avenue by NHM</title>
 <meta name="description" content="An American classic model profile: specifications, an initial vintage age screen and checks before buying.">
 <meta name="theme-color" content="#202527">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
-  <a class="site-header__logo" href="index.html" aria-label="Woodward Avenue by NHM — home">
+  <a class="site-header__logo" href="index.html" aria-label="Woodward Avenue by NHM, home">
     <img src="assets/logo/woodward-logo-light.png" alt="Woodward Avenue by NHM" width="1495" height="324">
   </a>
   <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
@@ -23,8 +23,7 @@
   </button>
   <nav class="site-nav" id="site-nav" aria-label="Primary">
     <a href="index.html#services">Services</a>
-    <a href="listings.html" aria-current="page">Listings</a>
-    <a href="index.html#process">How it works</a>
+    <a href="listings.html" aria-current="page">Model profiles</a>
     <a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/index.html">Nihon Heritage Motors <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
     <a class="btn btn--ivory btn--small" href="index.html#contact">Contact</a>
   </nav>
@@ -32,7 +31,7 @@
 
 <main id="main" class="page">
   <section class="page-intro" aria-labelledby="page-title">
-    <p class="breadcrumb"><a href="listings.html">Listings</a> / <span id="crumb">Profile</span></p>
+    <p class="breadcrumb"><a href="listings.html">Model profiles</a> / <span id="crumb">Profile</span></p>
     <p class="eyebrow" id="eyebrow"></p>
     <h1 id="page-title">Listing</h1>
     <p class="lead" id="summary"></p>
@@ -43,7 +42,7 @@
       <div class="detail__media" id="media"></div>
       <div class="prose">
         <dl class="specs" id="specs"></dl>
-        <p class="notice"><strong>Model profile, not a car for sale.</strong> We plan to sell reconditioned examples already registered in India, and can help you find, inspect and import one from the US. <a href="index.html#in-india">What we do</a></p>
+        <p class="notice"><strong>Model profile only.</strong> This car is not offered for sale. <a href="index.html#provenance">Read our approach</a>.</p>
       </div>
     </div>
   </section>
@@ -52,16 +51,16 @@
     <div class="prose">
       <h2 class="section-title" id="checks-title">What to check before you buy</h2>
       <ul class="checklist" id="checks"></ul>
-      <p>Always ask for the title and an independent inspection; we arrange one before you buy. American cars are left-hand drive, so check with your broker and transport authority how the car will be registered in India. NHM’s <a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/guide.html">buying guide</a> explains the import steps.</p>
+      <p>Ask for the title and an independent inspection before buying. Check left-hand-drive registration and use with your broker and transport authority. NHM’s <a href="https://aryanmayekar999-byte.github.io/nhmwebsitedesign/guide.html">buying guide</a> explains the import steps.</p>
       <div class="actions">
-        <a class="btn btn--dark" href="index.html#contact">Have us find one</a>
-        <a class="btn btn--line" href="listings.html">All listings</a>
+        <a class="btn btn--dark" href="index.html#contact">Woodward’s future plans</a>
+        <a class="btn btn--line" href="listings.html">All model profiles</a>
       </div>
     </div>
   </section>
 
   <section class="page-section" id="more-section" hidden aria-labelledby="more-title">
-    <h2 class="section-title" id="more-title">More listings</h2>
+    <h2 class="section-title" id="more-title">More model profiles</h2>
     <ul class="cards" id="more"></ul>
   </section>
 
@@ -81,8 +80,7 @@
         <span class="footer-col__title">Explore</span>
         <ul>
           <li><a href="index.html#services">Services</a></li>
-          <li><a href="listings.html">Listings</a></li>
-          <li><a href="index.html#process">How it works</a></li>
+          <li><a href="listings.html">Model profiles</a></li>
           <li><a href="index.html#contact">Contact</a></li>
           <li><a href="credits.html">Photo credits</a></li>
           <li><a href="privacy.html">Privacy policy</a></li>
@@ -121,7 +119,7 @@
     }
     var name = car.make + ' ' + car.model;
     var elig = WA.eligibility(car.from, car.to);
-    document.title = name + ' (' + WA.years(car.from, car.to) + ') — Woodward Avenue by NHM';
+    document.title = name + ' (' + WA.years(car.from, car.to) + ') | Woodward Avenue by NHM';
     $('crumb').textContent = name;
     $('eyebrow').textContent = WA.years(car.from, car.to) + ' · ' + car.make;
     $('page-title').textContent = car.model;

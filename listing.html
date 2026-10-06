@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Listing — Nihon Heritage Motors</title>
+  <title>Listing | Nihon Heritage Motors</title>
   <meta name="description" content="A classic Japanese car profile from Nihon Heritage Motors: specification, India import eligibility and what to check before buying.">
   <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/brand/nhm-ring-180.png">
@@ -25,7 +25,7 @@
       <nav class="nav" id="site-nav" aria-label="Main">
         <ul>
           <li><a href="services.html">Services</a></li>
-          <li><a href="listings.html" aria-current="page">Listings</a></li>
+          <li><a href="listings.html" aria-current="page">Model profiles</a></li>
           <li><a href="auctions.html">Auctions</a></li>
           <li><a href="guide.html">Buying guide</a></li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -37,7 +37,7 @@
   <main id="main">
     <section class="page-intro" aria-labelledby="page-title">
       <div class="container">
-        <p class="breadcrumb"><a href="listings.html">Listings</a> / <span id="crumb">Profile</span></p>
+        <p class="breadcrumb"><a href="listings.html">Model profiles</a> / <span id="crumb">Profile</span></p>
         <p class="eyebrow" id="eyebrow"></p>
         <h1 id="page-title" class="heading-1">Listing</h1>
         <p class="body" id="summary"></p>
@@ -50,7 +50,7 @@
           <div class="detail__media" id="media"></div>
           <div class="prose">
             <dl class="specs" id="specs"></dl>
-            <p class="notice"><strong>Model profile, not a car for sale.</strong> NHM plans to sell reconditioned examples already registered in India, and can help you find, inspect and import one from Japan. <a href="services.html">What NHM does</a></p>
+            <p class="notice"><strong>Model profile only.</strong> This car is not offered for sale. <a href="approach.html">Read NHM’s approach</a>.</p>
           </div>
         </div>
       </div>
@@ -61,9 +61,9 @@
         <div class="prose">
           <h2 id="checks-title" class="heading-2">What to check before you bid</h2>
           <ul class="checklist body" id="checks"></ul>
-          <p class="body">Always ask for the auction sheet and an independent inspection; NHM arranges one before you buy. The <a href="guide.html#auction-sheet">buying guide</a> explains how to read one.</p>
+          <p class="body">Ask for the auction sheet and an independent inspection before buying. The <a href="guide.html#auction-sheet">buying guide</a> explains how to read one.</p>
           <div class="actions">
-            <a class="btn btn--primary" href="services.html">Have NHM find one</a>
+            <a class="btn btn--primary" href="services.html">NHM’s proposed services</a>
             <a class="btn" href="auctions.html">Search the auctions</a>
           </div>
         </div>
@@ -73,7 +73,7 @@
     <section class="section" id="more-section" hidden aria-labelledby="more-title">
       <div class="container">
         <div class="section-head">
-          <h2 id="more-title" class="heading-2">More listings</h2>
+          <h2 id="more-title" class="heading-2">More model profiles</h2>
         </div>
         <ul class="cards" id="more"></ul>
       </div>
@@ -94,7 +94,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="listings.html">Listings</a></li>
+          <li><a href="listings.html">Model profiles</a></li>
           <li><a href="auctions.html">Auctions</a></li>
           <li><a href="guide.html">Buying guide</a></li>
           <li><a href="woodward.html">Woodward Avenue</a></li>
@@ -122,7 +122,7 @@
       }
       var name = car.make + ' ' + car.model;
       var elig = NHM.eligibility(car.from, car.to);
-      document.title = name + ' (' + car.chassis + ') — Nihon Heritage Motors';
+      document.title = name + ' (' + car.chassis + ') | Nihon Heritage Motors';
       $('crumb').textContent = name;
       $('eyebrow').textContent = NHM.years(car.from, car.to) + ' · ' + car.make;
       $('page-title').textContent = car.model;
