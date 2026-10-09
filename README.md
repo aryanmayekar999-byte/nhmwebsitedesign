@@ -28,6 +28,7 @@ For the business itself (what NHM is, its services and the rules it works within
 | `woodward.html` | Introduces Woodward Avenue by NHM, the sister concierge for American classics, and links to its site (https://nhmwebsitedesign.aryan-0e3.workers.dev/) |
 | `credits.html` | Photo credits for the listing photographs |
 | `styleguide.html` | Live style guide: logo, colour, type, spacing, radius, components |
+| `europa-motoring/site/` | Europa Motoring concept site in this repository; separate deployment configuration is still needed for a distinct domain |
 | `js/data.js` | Listings data, an approximate model-year screen and the shared listing card |
 | `js/listings.js`, `js/guide.js` | Listings filters; guide tools |
 | `css/tokens.css`, `css/site.css` | Design tokens and site styles |
